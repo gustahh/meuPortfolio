@@ -148,6 +148,7 @@ li:hover {
   height: 100%;
   background-color: #2C2C2C;
   padding: 5px;
+  cursor: pointer;
 }
 #ativa {
   background-color: #1A1A1A;

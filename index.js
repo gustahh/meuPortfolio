@@ -2,42 +2,41 @@ $(document).ready(function () {
     /* carrega página bem vindo por padrão */
     $('.bg').load('pages/bemvindo.html');
 
-    /* funções para carregar página */
-    function loadBemvindo(elemento) {
+    /* função para carregar página */
+
+    function loadPag(pag, nomePag, elemento) {
         console.log('Função carregada!');
-        $('.nomePag').html('Bem vindo!');
-        $(elemento).find('img').attr('src', 'icons/house-fill.svg');
-        $(elemento).next().find('img').attr('src', 'icons/msg-bubble-user.svg');
-        $(elemento).next().next().find('img').attr('src', 'icons/layers.svg');
-        $(elemento).next().next().next().find('img').attr('src', 'icons/at-sign.svg');
-        $('.bg').load('pages/bemvindo.html');
+        $('.nomePag').html(pag);
+        if (nomePag === 'bemvindo') {
+            $(elemento).find('img').attr('src', 'icons/house-fill.svg');
+            $(elemento).next().find('img').attr('src', 'icons/msg-bubble-user.svg');
+            $(elemento).next().next().find('img').attr('src', 'icons/layers.svg');
+            $(elemento).next().next().next().find('img').attr('src', 'icons/at-sign.svg');
+        } else if (nomePag === 'sobremim') {
+            $(elemento).prev().find('img').attr('src', 'icons/house.svg');
+            $(elemento).find('img').attr('src', 'icons/msg-bubble-user-fill.svg');
+            $(elemento).next().find('img').attr('src', 'icons/layers.svg');
+            $(elemento).next().next().find('img').attr('src', 'icons/at-sign.svg');
+        } else if (nomePag === 'portfolio') {
+            $(elemento).prev().prev().find('img').attr('src', 'icons/house.svg');
+            $(elemento).prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
+            $(elemento).find('img').attr('src', 'icons/layers-fill.svg');
+            $(elemento).next().find('img').attr('src', 'icons/at-sign.svg');
+        } else if (nomePag === 'contato') {
+            $(elemento).prev().prev().prev().find('img').attr('src', 'icons/house.svg');
+            $(elemento).prev().prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
+            $(elemento).prev().find('img').attr('src', 'icons/layers.svg');
+            $(elemento).find('img').attr('src', 'icons/at-sign-fill.svg');
+        }
+         /* 
+            explicando código!
+            .next() seleciona o elemento próximo a div clicada (elemento),
+            cada .next() a mais é um elemento a mais. A lógica se inverte para
+            o .prev(), buscando o elemento anterior.
+        */
+        $('.bg').load('pages/' + nomePag + '.html');
     }
-    function loadSobre(elemento) {
-        console.log('Função carregada!');
-        $('.nomePag').html('Sobre mim');
-        $(elemento).prev().find('img').attr('src', 'icons/house.svg');
-        $(elemento).find('img').attr('src', 'icons/msg-bubble-user-fill.svg');
-        $(elemento).next().find('img').attr('src', 'icons/layers.svg');
-        $(elemento).next().next().find('img').attr('src', 'icons/at-sign.svg');
-        $('.bg').load('pages/sobremim.html');
-    }
-    function loadPortfolio(elemento) {
-        $('.nomePag').html('Portfólio');
-        $(elemento).prev().prev().find('img').attr('src', 'icons/house.svg');
-        $(elemento).prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
-        $(elemento).find('img').attr('src', 'icons/layers-fill.svg');
-        $(elemento).next().find('img').attr('src', 'icons/at-sign.svg');
-        $('.bg').load('pages/portfolio.html');
-    }
-    function loadContato(elemento) {
-        console.log('Função carregada!');
-        $('.nomePag').html('Contato');
-        $(elemento).prev().prev().prev().find('img').attr('src', 'icons/house.svg');
-        $(elemento).prev().prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
-        $(elemento).prev().find('img').attr('src', 'icons/layers.svg');
-        $(elemento).find('img').attr('src', 'icons/at-sign-fill.svg');
-        $('.bg').load('pages/contato.html');
-    }
+
     /* troca guias ativas */
     function removeId(tabindex) {
         //remove id e adiciona a guia atual
@@ -55,12 +54,12 @@ $(document).ready(function () {
         console.log(id);
         if (id === 'bemvindo') {
             //carrega função
-            loadBemvindo($(this));
+            loadPag('Bem vindo!', 'bemvindo', $(this));
 
             //verifica se a guia já existe, caso contrário a cria
             if (bemvindo > 0) {
                 console.log('Guia existente');
-                loadBemvindo();
+                loadPag('Bem vindo!', 'bemvindo', $(this));
 
                 removeId('bemvindo');
             } else {
@@ -79,12 +78,12 @@ $(document).ready(function () {
             }
         } else if (id === 'sobre') {
             //carrega função
-            loadSobre($(this));
+            loadPag('Sobre mim', 'sobremim', $(this));
 
             //verifica se a guia já existe, caso contrário a cria
             if (sobre > 0) {
                 console.log('Guia existente');
-                loadSobre();
+                loadPag('Sobre mim', 'sobremim', $(this));
                 removeId('sobre');
             } else {
                 sobre++;
@@ -97,17 +96,17 @@ $(document).ready(function () {
                 </div>
                 `;
                 $('.bar').append(newTab);
-                
+
                 removeId('sobre');
             }
         } else if (id === 'portfolio') {
             //carrega função
-            loadPortfolio($(this));
+            loadPag('Portfólio', 'portfolio', $(this));
 
             //verifica se a guia já existe, caso contrário a cria
             if (portfolio > 0) {
                 console.log('Guia existente');
-                loadPortfolio();
+                loadPag('Portfólio', 'portfolio', $(this));
                 removeId('portfolio');
             } else {
                 portfolio++;
@@ -124,12 +123,12 @@ $(document).ready(function () {
             }
         } else if (id === 'contato') {
             //carrega função
-            loadContato($(this));
+            loadPag('Contato', 'contato', $(this));
 
             //verifica se a guia já existe, caso contrário a cria
             if (contato > 0) {
                 console.log('Guia existente');
-                loadContato();
+                loadPag('Contato', 'contato', $(this));
                 removeId('contato');
             } else {
                 contato++;
@@ -145,11 +144,10 @@ $(document).ready(function () {
                 removeId('contato');
             }
         }
-        /* 
-            explicando código!
-            .next() seleciona o elemento próximo a div clicada (this, event),
-            cada .next() a mais é um elemento a mais. A lógica se inverte para
-            o .prev(), buscando o elemento anterior.
-        */
+    });
+    $('.bar').on('click', '.tab', function () { 
+        var index = $(this).attr('tabindex');
+        console.log(index);
+        removeId(index);
     });
 });
