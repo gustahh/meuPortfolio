@@ -66,7 +66,7 @@ $(document).ready(function () {
                 bemvindo++;
                 console.log(bemvindo);
                 var newTab = `
-                <div class="tab" tabindex="bemvindo" id="ativa">
+                <div class="tab" tabindex="bemvindo" name="Bem vindo!" id="ativa">
                     <img src="icons/house-fill.svg" alt="" srcset="" class="iconsTab">
                     <span class="tabName">Bem Vindo!</span>
                     <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
@@ -76,7 +76,7 @@ $(document).ready(function () {
 
                 removeId('bemvindo');
             }
-        } else if (id === 'sobre') {
+        } else if (id === 'sobremim') {
             //carrega função
             loadPag('Sobre mim', 'sobremim', $(this));
 
@@ -89,7 +89,7 @@ $(document).ready(function () {
                 sobre++;
                 console.log(sobre);
                 var newTab = `
-                <div class="tab" tabindex="sobre">
+                <div class="tab" tabindex="sobremim" name="Sobre mim">
                     <img src="icons/msg-bubble-user-fill.svg" alt="" srcset="" class="iconsTab">
                     <span class="tabName">Sobre mim</span>
                     <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
@@ -111,7 +111,7 @@ $(document).ready(function () {
             } else {
                 portfolio++;
                 var newTab = `
-                <div class="tab" tabindex="portfolio">
+                <div class="tab" tabindex="portfolio" name="Portfólio">
                     <img src="icons/layers-fill.svg" alt="" srcset="" class="iconsTab">
                     <span class="tabName">Portfólio</span>
                     <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
@@ -133,7 +133,7 @@ $(document).ready(function () {
             } else {
                 contato++;
                 var newTab = `
-                <div class="tab" tabindex="contato">
+                <div class="tab" tabindex="contato" name="Contato">
                     <img src="icons/at-sign-fill.svg" alt="" srcset="" class="iconsTab">
                     <span class="tabName">Contato</span>
                     <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
@@ -147,7 +147,9 @@ $(document).ready(function () {
     });
     $('.bar').on('click', '.tab', function () { 
         var index = $(this).attr('tabindex');
+        var nomePag = $(this).attr('name');
         console.log(index);
         removeId(index);
+        loadPag(nomePag, index, $('#' + index));
     });
 });
