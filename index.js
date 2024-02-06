@@ -29,7 +29,7 @@ $(document).ready(function () {
             $(this).prev().prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
             $(this).prev().find('img').attr('src', 'icons/layers.svg');
             $(this).find('img').attr('src', 'icons/at-sign-fill.svg');
-            $('.bg').load('pages/contato.html'); a
+            $('.bg').load('pages/contato.html'); aa
         }
         /* 
             explicando código!
