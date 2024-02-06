@@ -38,6 +38,13 @@ $(document).ready(function () {
         $(elemento).find('img').attr('src', 'icons/at-sign-fill.svg');
         $('.bg').load('pages/contato.html');
     }
+    /* troca guias ativas */
+    function removeId(tabindex) {
+        //remove id e adiciona a guia atual
+        $('#ativa').removeAttr('id');
+        $('[tabindex="' + tabindex + '"]').attr('id', 'ativa');
+        console.log(tabindex);
+    }
     //declara se existe ou não as abas (1 para existe e 0 para não existe)
     var bemvindo = 1;
     var sobre = 0;
@@ -54,6 +61,8 @@ $(document).ready(function () {
             if (bemvindo > 0) {
                 console.log('Guia existente');
                 loadBemvindo();
+
+                removeId('bemvindo');
             } else {
                 bemvindo++;
                 console.log(bemvindo);
@@ -65,6 +74,8 @@ $(document).ready(function () {
                 </div>
                 `;
                 $('.bar').append(newTab);
+
+                removeId('bemvindo');
             }
         } else if (id === 'sobre') {
             //carrega função
@@ -74,6 +85,7 @@ $(document).ready(function () {
             if (sobre > 0) {
                 console.log('Guia existente');
                 loadSobre();
+                removeId('sobre');
             } else {
                 sobre++;
                 console.log(sobre);
@@ -85,9 +97,8 @@ $(document).ready(function () {
                 </div>
                 `;
                 $('.bar').append(newTab);
-
-                var ativo = $('.bar').find('.tab').attr('id', 'ativa');
-                console.log(ativo);
+                
+                removeId('sobre');
             }
         } else if (id === 'portfolio') {
             //carrega função
@@ -97,16 +108,19 @@ $(document).ready(function () {
             if (portfolio > 0) {
                 console.log('Guia existente');
                 loadPortfolio();
+                removeId('portfolio');
             } else {
                 portfolio++;
                 var newTab = `
-                <div class="tab" tabindex="portfolio" id="ativa">
+                <div class="tab" tabindex="portfolio">
                     <img src="icons/layers-fill.svg" alt="" srcset="" class="iconsTab">
                     <span class="tabName">Portfólio</span>
                     <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
                 </div>
                 `;
                 $('.bar').append(newTab);
+
+                removeId('portfolio');
             }
         } else if (id === 'contato') {
             //carrega função
@@ -116,16 +130,19 @@ $(document).ready(function () {
             if (contato > 0) {
                 console.log('Guia existente');
                 loadContato();
+                removeId('contato');
             } else {
                 contato++;
                 var newTab = `
-                <div class="tab" tabindex="contato" id="ativa">
+                <div class="tab" tabindex="contato">
                     <img src="icons/at-sign-fill.svg" alt="" srcset="" class="iconsTab">
                     <span class="tabName">Contato</span>
                     <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
                 </div>
                 `;
                 $('.bar').append(newTab);
+
+                removeId('contato');
             }
         }
         /* 
