@@ -15,7 +15,7 @@ $(document).ready(function() {
             $(this).find('img').attr('src', 'icons/msg-bubble-user-fill.svg');
             $(this).next().find('img').attr('src', 'icons/layers.svg');
             $(this).next().next().find('img').attr('src', 'icons/at-sign.svg');
-            $('main').load('pages/sobre.html');     
+            $('main').load('pages/sobremim.html');     
         } else if (id === 'portfolio') {
             $('.nomePag').html('Portfólio');
             $(this).prev().prev().find('img').attr('src', 'icons/house.svg'); 
