@@ -3,39 +3,39 @@ $(document).ready(function () {
     $('.bg').load('pages/bemvindo.html');
 
     /* funções para carregar página */
-    function loadBemvindo() {
+    function loadBemvindo(elemento) {
         console.log('Função carregada!');
         $('.nomePag').html('Bem vindo!');
-        $(this).find('img').attr('src', 'icons/house-fill.svg');
-        $(this).next().find('img').attr('src', 'icons/msg-bubble-user.svg');
-        $(this).next().next().find('img').attr('src', 'icons/layers.svg');
-        $(this).next().next().next().find('img').attr('src', 'icons/at-sign.svg');
+        $(elemento).find('img').attr('src', 'icons/house-fill.svg');
+        $(elemento).next().find('img').attr('src', 'icons/msg-bubble-user.svg');
+        $(elemento).next().next().find('img').attr('src', 'icons/layers.svg');
+        $(elemento).next().next().next().find('img').attr('src', 'icons/at-sign.svg');
         $('.bg').load('pages/bemvindo.html');
     }
-    function loadSobre() {
+    function loadSobre(elemento) {
         console.log('Função carregada!');
         $('.nomePag').html('Sobre mim');
-        $(this).prev().find('img').attr('src', 'icons/house.svg');
-        $(this).find('img').attr('src', 'icons/msg-bubble-user-fill.svg');
-        $(this).next().find('img').attr('src', 'icons/layers.svg');
-        $(this).next().next().find('img').attr('src', 'icons/at-sign.svg');
+        $(elemento).prev().find('img').attr('src', 'icons/house.svg');
+        $(elemento).find('img').attr('src', 'icons/msg-bubble-user-fill.svg');
+        $(elemento).next().find('img').attr('src', 'icons/layers.svg');
+        $(elemento).next().next().find('img').attr('src', 'icons/at-sign.svg');
         $('.bg').load('pages/sobremim.html');
     }
-    function loadPortfolio() {
+    function loadPortfolio(elemento) {
         $('.nomePag').html('Portfólio');
-        $(this).prev().prev().find('img').attr('src', 'icons/house.svg');
-        $(this).prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
-        $(this).find('img').attr('src', 'icons/layers-fill.svg');
-        $(this).next().find('img').attr('src', 'icons/at-sign.svg');
+        $(elemento).prev().prev().find('img').attr('src', 'icons/house.svg');
+        $(elemento).prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
+        $(elemento).find('img').attr('src', 'icons/layers-fill.svg');
+        $(elemento).next().find('img').attr('src', 'icons/at-sign.svg');
         $('.bg').load('pages/portfolio.html');
     }
-    function loadContato() {
+    function loadContato(elemento) {
         console.log('Função carregada!');
         $('.nomePag').html('Contato');
-        $(this).prev().prev().prev().find('img').attr('src', 'icons/house.svg');
-        $(this).prev().prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
-        $(this).prev().find('img').attr('src', 'icons/layers.svg');
-        $(this).find('img').attr('src', 'icons/at-sign-fill.svg');
+        $(elemento).prev().prev().prev().find('img').attr('src', 'icons/house.svg');
+        $(elemento).prev().prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
+        $(elemento).prev().find('img').attr('src', 'icons/layers.svg');
+        $(elemento).find('img').attr('src', 'icons/at-sign-fill.svg');
         $('.bg').load('pages/contato.html');
     }
     //declara se existe ou não as abas (1 para existe e 0 para não existe)
@@ -48,7 +48,7 @@ $(document).ready(function () {
         console.log(id);
         if (id === 'bemvindo') {
             //carrega função
-            loadBemvindo();
+            loadBemvindo($(this));
 
             //verifica se a guia já existe, caso contrário a cria
             if (bemvindo > 0) {
@@ -68,7 +68,7 @@ $(document).ready(function () {
             }
         } else if (id === 'sobre') {
             //carrega função
-            loadSobre();
+            loadSobre($(this));
 
             //verifica se a guia já existe, caso contrário a cria
             if (sobre > 0) {
@@ -78,17 +78,20 @@ $(document).ready(function () {
                 sobre++;
                 console.log(sobre);
                 var newTab = `
-                <div class="tab" tabindex="sobre" id="ativa">
+                <div class="tab" tabindex="sobre">
                     <img src="icons/msg-bubble-user-fill.svg" alt="" srcset="" class="iconsTab">
                     <span class="tabName">Sobre mim</span>
                     <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
                 </div>
                 `;
                 $('.bar').append(newTab);
+
+                var ativo = $('.bar').find('.tab').attr('id', 'ativa');
+                console.log(ativo);
             }
         } else if (id === 'portfolio') {
             //carrega função
-            loadPortfolio();
+            loadPortfolio($(this));
 
             //verifica se a guia já existe, caso contrário a cria
             if (portfolio > 0) {
@@ -107,7 +110,7 @@ $(document).ready(function () {
             }
         } else if (id === 'contato') {
             //carrega função
-            loadContato();
+            loadContato($(this));
 
             //verifica se a guia já existe, caso contrário a cria
             if (contato > 0) {
