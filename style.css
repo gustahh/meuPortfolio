@@ -146,8 +146,11 @@ li:hover {
   float: left;
   width: auto;
   height: 100%;
-  background-color: #1A1A1A;
+  background-color: #2C2C2C;
   padding: 5px;
+}
+#ativa {
+  background-color: #1A1A1A;
 }
 .iconsTab {
   position: relative;
@@ -166,4 +169,5 @@ li:hover {
   width: 15px;
   height: 15px;
   margin: 2px 0px;
+  cursor: pointer;
 }
