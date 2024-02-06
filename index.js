@@ -37,7 +37,5 @@ $(document).ready(function () {
             cada .next() a mais é um elemento a mais. A lógica se inverte para
             o .prev(), buscando o elemento anterior.
         */
-
-
     });
 });
