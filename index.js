@@ -1,35 +1,35 @@
-$(document).ready(function() {
-    $('li').click(function(event) {
+$(document).ready(function () {
+    $('li').click(function (event) {
         id = $(this).attr('id');
         console.log(id);
         if (id === 'bemvindo') {
             $('.nomePag').html('Bem vindo!');
-            $(this).find('img').attr('src', 'icons/house-fill.svg'); 
+            $(this).find('img').attr('src', 'icons/house-fill.svg');
             $(this).next().find('img').attr('src', 'icons/msg-bubble-user.svg');
             $(this).next().next().find('img').attr('src', 'icons/layers.svg');
             $(this).next().next().next().find('img').attr('src', 'icons/at-sign.svg');
-            $('main').load('pages/bemvindo.html');
+            $('.bg').load('pages/bemvindo.html');
         } else if (id === 'sobre') {
             $('.nomePag').html('Sobre mim');
-            $(this).prev().find('img').attr('src', 'icons/house.svg'); 
+            $(this).prev().find('img').attr('src', 'icons/house.svg');
             $(this).find('img').attr('src', 'icons/msg-bubble-user-fill.svg');
             $(this).next().find('img').attr('src', 'icons/layers.svg');
             $(this).next().next().find('img').attr('src', 'icons/at-sign.svg');
-            $('main').load('pages/sobremim.html');     
+            $('.bg').load('pages/sobremim.html');
         } else if (id === 'portfolio') {
             $('.nomePag').html('Portfólio');
-            $(this).prev().prev().find('img').attr('src', 'icons/house.svg'); 
+            $(this).prev().prev().find('img').attr('src', 'icons/house.svg');
             $(this).prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
             $(this).find('img').attr('src', 'icons/layers-fill.svg');
             $(this).next().find('img').attr('src', 'icons/at-sign.svg');
-            $('main').load('pages/portfolio.html');  
+            $('.bg').load('pages/portfolio.html');
         } else if (id === 'contato') {
             $('.nomePag').html('Contato');
-            $(this).prev().prev().prev().find('img').attr('src', 'icons/house.svg'); 
+            $(this).prev().prev().prev().find('img').attr('src', 'icons/house.svg');
             $(this).prev().prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
             $(this).prev().find('img').attr('src', 'icons/layers.svg');
             $(this).find('img').attr('src', 'icons/at-sign-fill.svg');
-            $('main').load('pages/contato.html');  
+            $('.bg').load('pages/contato.html');
         }
         /* 
             explicando código!
@@ -37,7 +37,7 @@ $(document).ready(function() {
             cada .next() a mais é um elemento a mais. A lógica se inverte para
             o .prev(), buscando o elemento anterior.
         */
-       
-        
+
+
     });
 });
