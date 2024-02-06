@@ -32,7 +32,7 @@ $(document).ready(function() {
             $('main').load('pages/contato.html');  
         }
         /* 
-            !explicando código!
+            explicando código!
             .next() seleciona o elemento próximo a div clicada (this, event),
             cada .next() a mais é um elemento a mais. A lógica se inverte para
             o .prev(), buscando o elemento anterior.
