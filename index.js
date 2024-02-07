@@ -33,12 +33,12 @@ $(document).ready(function () {
             $('#portfolio').find('img').attr('src', 'icons/layers.svg');
             $('#contato').find('img').attr('src', 'icons/at-sign.svg');
         }
-         /* 
-            explicando código!
-            .next() seleciona o elemento próximo a div clicada (elemento),
-            cada .next() a mais é um elemento a mais. A lógica se inverte para
-            o .prev(), buscando o elemento anterior.
-        */
+        /* 
+           explicando código!
+           .next() seleciona o elemento próximo a div clicada (elemento),
+           cada .next() a mais é um elemento a mais. A lógica se inverte para
+           o .prev(), buscando o elemento anterior.
+       */
         $('.bg').load('pages/' + nomePag + '.html');
     }
 
@@ -83,7 +83,7 @@ $(document).ready(function () {
                 removeId('bemvindo');
             } else {
                 bemvindo++;
-                guiasTotal++; 
+                guiasTotal++;
                 console.log(bemvindo);
                 var newTab = `
                 <div class="tab" tabindex="bemvindo" name="Bem vindo!" id="ativa">
@@ -172,7 +172,7 @@ $(document).ready(function () {
         }
     });
     //altera a aba clicando na mesma
-    $('.bar').on('click', '.tab', function () { 
+    $('.bar').on('click', '.tab', function () {
         var index = $(this).attr('tabindex');
         var nomePag = $(this).attr('name');
         showClose($(this));
@@ -181,10 +181,10 @@ $(document).ready(function () {
     });
 
     //fecha a guia
-    $('.bar').on('click', '.closeTab', function () {
+    $(document).on('click', '.closeTab', function () {
         // Evita a propagação do evento para o elemento pai
         event.stopPropagation();
-        console.log('fechar!'); 
+        console.log('fechar!');
         //seleciona a guia clicada
         var pai = $(this).parent();
         var index = pai.attr('tabindex');
@@ -202,17 +202,26 @@ $(document).ready(function () {
             guiasTotal--;
         }
 
-         /*carrega a guia a direita se existir, caso contrário carrega a 
-        da esquerda */
+        /*carrega a guia a direita se existir, caso contrário carrega a 
+       da esquerda */
         if (pai.next().length > 0) {
             console.log('existe');
             var nextIndex = pai.next().attr('tabindex');
             console.log(nextIndex);
             var nextName = pai.next().attr('name');
             console.log(nextName);
-            loadPag(nextName, nextIndex, $('#' + nextIndex)); 
+            loadPag(nextName, nextIndex, $('#' + nextIndex));
+            removeId(nextIndex);
+            showClose(pai.next());
         } else {
-            console.log('não existe'); 
+            console.log('não existe');
+            var prevIndex = pai.prev().attr('tabindex');
+            console.log(prevIndex);
+            var prevName = pai.prev().attr('name');
+            console.log(prevName);
+            loadPag(prevName, prevIndex, $('#' + prevIndex));
+            removeId(prevIndex);
+            showClose(pai.prev());
         }
 
         //remove guia
