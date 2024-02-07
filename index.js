@@ -1,7 +1,7 @@
 $(document).ready(function () {
     /* carrega página bem vindo por padrão */
     $('.bg').load('pages/bemvindo.html');
-
+    $('[tabindex="bemvindo"]').find('.closeTab').css('display', 'block');;
     /* função para carregar página */
 
     function loadPag(pag, nomePag, elemento) {
@@ -37,13 +37,26 @@ $(document).ready(function () {
         $('.bg').load('pages/' + nomePag + '.html');
     }
 
-    /* troca guias ativas */
+    //troca guias ativas
     function removeId(tabindex) {
         //remove id e adiciona a guia atual
         $('#ativa').removeAttr('id');
         $('[tabindex="' + tabindex + '"]').attr('id', 'ativa');
         console.log(tabindex);
     }
+
+    //exibe o botão de fechar da guia
+    function showClose(guia) {
+        //oculta todos os botões de fechar e exibe apenas na guia atual
+        var allCloses = document.querySelectorAll('.closeTab');
+        allCloses.forEach(close => {
+            var className = close.className;
+            $('.' + className).css('display', 'none');
+        });
+        var thisClose = $(guia).find('.closeTab');
+        thisClose.css('display', 'block');
+    }
+
     //declara se existe ou não as abas (1 para existe e 0 para não existe)
     var bemvindo = 1;
     var sobre = 0;
@@ -60,7 +73,7 @@ $(document).ready(function () {
             if (bemvindo > 0) {
                 console.log('Guia existente');
                 loadPag('Bem vindo!', 'bemvindo', $(this));
-
+                showClose('[tabindex="bemvindo"]');
                 removeId('bemvindo');
             } else {
                 bemvindo++;
@@ -73,7 +86,7 @@ $(document).ready(function () {
                 </div>
                 `;
                 $('.bar').append(newTab);
-
+                showClose('[tabindex="bemvindo"]');
                 removeId('bemvindo');
             }
         } else if (id === 'sobremim') {
@@ -84,7 +97,8 @@ $(document).ready(function () {
             if (sobre > 0) {
                 console.log('Guia existente');
                 loadPag('Sobre mim', 'sobremim', $(this));
-                removeId('sobre');
+                showClose('[tabindex="sobremim"]');
+                removeId('sobremim');
             } else {
                 sobre++;
                 console.log(sobre);
@@ -96,8 +110,8 @@ $(document).ready(function () {
                 </div>
                 `;
                 $('.bar').append(newTab);
-
-                removeId('sobre');
+                showClose('[tabindex="sobremim"]');
+                removeId('sobremim');
             }
         } else if (id === 'portfolio') {
             //carrega função
@@ -107,6 +121,7 @@ $(document).ready(function () {
             if (portfolio > 0) {
                 console.log('Guia existente');
                 loadPag('Portfólio', 'portfolio', $(this));
+                showClose('[tabindex="portfolio"]');
                 removeId('portfolio');
             } else {
                 portfolio++;
@@ -118,7 +133,7 @@ $(document).ready(function () {
                 </div>
                 `;
                 $('.bar').append(newTab);
-
+                showClose('[tabindex="portfolio"]');
                 removeId('portfolio');
             }
         } else if (id === 'contato') {
@@ -129,6 +144,7 @@ $(document).ready(function () {
             if (contato > 0) {
                 console.log('Guia existente');
                 loadPag('Contato', 'contato', $(this));
+                showClose('[tabindex="contato"]');
                 removeId('contato');
             } else {
                 contato++;
@@ -140,16 +156,23 @@ $(document).ready(function () {
                 </div>
                 `;
                 $('.bar').append(newTab);
-
+                showClose('[tabindex="contato"]');
                 removeId('contato');
             }
         }
     });
+    //altera a aba clicando na mesma
     $('.bar').on('click', '.tab', function () { 
         var index = $(this).attr('tabindex');
         var nomePag = $(this).attr('name');
-        console.log(index);
+        showClose($(this));
         removeId(index);
         loadPag(nomePag, index, $('#' + index));
+    });
+
+    //fecha a aba
+    $('.tab').on('click', '.closeTab', function () { 
+        var index = $(this).attr('tabindex');
+        
     });
 });
