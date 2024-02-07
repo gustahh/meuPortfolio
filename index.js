@@ -27,6 +27,11 @@ $(document).ready(function () {
             $(elemento).prev().prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
             $(elemento).prev().find('img').attr('src', 'icons/layers.svg');
             $(elemento).find('img').attr('src', 'icons/at-sign-fill.svg');
+        } else {
+            $('#bemvindo').find('img').attr('src', 'icons/house.svg');
+            $('#sobremim').find('img').attr('src', 'icons/msg-bubble-user.svg');
+            $('#portfolio').find('img').attr('src', 'icons/layers.svg');
+            $('#contato').find('img').attr('src', 'icons/at-sign.svg');
         }
          /* 
             explicando código!
@@ -62,6 +67,7 @@ $(document).ready(function () {
     var sobre = 0;
     var portfolio = 0;
     var contato = 0;
+    var guiasTotal = 1;
     $('li').click(function (event) {
         id = $(this).attr('id');
         console.log(id);
@@ -77,6 +83,7 @@ $(document).ready(function () {
                 removeId('bemvindo');
             } else {
                 bemvindo++;
+                guiasTotal++; 
                 console.log(bemvindo);
                 var newTab = `
                 <div class="tab" tabindex="bemvindo" name="Bem vindo!" id="ativa">
@@ -101,6 +108,7 @@ $(document).ready(function () {
                 removeId('sobremim');
             } else {
                 sobre++;
+                guiasTotal++;
                 console.log(sobre);
                 var newTab = `
                 <div class="tab" tabindex="sobremim" name="Sobre mim">
@@ -125,6 +133,7 @@ $(document).ready(function () {
                 removeId('portfolio');
             } else {
                 portfolio++;
+                guiasTotal++;
                 var newTab = `
                 <div class="tab" tabindex="portfolio" name="Portfólio">
                     <img src="icons/layers-fill.svg" alt="" srcset="" class="iconsTab">
@@ -148,6 +157,7 @@ $(document).ready(function () {
                 removeId('contato');
             } else {
                 contato++;
+                guiasTotal++;
                 var newTab = `
                 <div class="tab" tabindex="contato" name="Contato">
                     <img src="icons/at-sign-fill.svg" alt="" srcset="" class="iconsTab">
@@ -170,9 +180,48 @@ $(document).ready(function () {
         loadPag(nomePag, index, $('#' + index));
     });
 
-    //fecha a aba
-    $('.tab').on('click', '.closeTab', function () { 
-        var index = $(this).attr('tabindex');
-        
+    //fecha a guia
+    $('.bar').on('click', '.closeTab', function () {
+        // Evita a propagação do evento para o elemento pai
+        event.stopPropagation();
+        console.log('fechar!'); 
+        //seleciona a guia clicada
+        var pai = $(this).parent();
+        var index = pai.attr('tabindex');
+        if (index === 'bemvindo') {
+            bemvindo--;
+            guiasTotal--;
+        } else if (index === 'sobremim') {
+            sobre--;
+            guiasTotal--;
+        } else if (index === 'portfolio') {
+            portfolio--;
+            guiasTotal--;
+        } else if (index === 'contato') {
+            contato--;
+            guiasTotal--;
+        }
+
+         /*carrega a guia a direita se existir, caso contrário carrega a 
+        da esquerda */
+        if (pai.next().length > 0) {
+            console.log('existe');
+            var nextIndex = pai.next().attr('tabindex');
+            console.log(nextIndex);
+            var nextName = pai.next().attr('name');
+            console.log(nextName);
+            loadPag(nextName, nextIndex, $('#' + nextIndex)); 
+        } else {
+            console.log('não existe'); 
+        }
+
+        //remove guia
+        pai.remove();
+        console.log('O numero de guias é: ', guiasTotal);
+
+        //checa numeros de guias, se for 0 então não exibe nenhuma
+        if (guiasTotal < 1) {
+            loadPag('', 'background');
+        }
     });
 });
