@@ -22,7 +22,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 60%;
+  width: 80%;
   height: 80%;
   background-color: #2C2C2C;
   border-radius: 10px;
@@ -173,4 +173,25 @@ li:hover {
   height: 15px;
   margin: 2px 0px;
   cursor: pointer;
+}
+
+/* bemvindo.html */
+.boxBemvindo {
+  position: relative;
+  float: left;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+h1 {
+  font-size: 50px;
+  margin: 5px 0px;
+}
+h2 {
+  font-size: 28px;
+  margin: 5px 0px;
+}
+p {
+  margin: 5px 0px;
 }
