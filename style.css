@@ -151,20 +151,24 @@ li:hover {
   cursor: pointer;
   transition: position ease-in-out 0.5s;
 }
+
 #ativa {
   background-color: #1A1A1A;
 }
+
 .iconsTab {
   position: relative;
   float: left;
   padding-right: 5px;
 }
+
 .tabName {
   position: relative;
   float: left;
   font-size: small;
   padding-right: 5px;
 }
+
 .closeTab {
   display: none;
   position: relative;
@@ -176,22 +180,52 @@ li:hover {
 }
 
 /* bemvindo.html */
-.boxBemvindo {
+.boasVindas {
   position: relative;
   float: left;
   display: flex;
   padding: 20px;
   flex-direction: column;
   flex-wrap: wrap;
+  top: 40%;
+  transform: translateY(-50%);
 }
+
 h1 {
   font-size: 50px;
   margin: 5px 0px;
 }
+
 h2 {
   font-size: 28px;
   margin: 5px 0px;
 }
+
 p {
   margin: 5px 0px;
+}
+
+.photo {
+  position: relative;
+  float: right;
+  width: 300px;
+  height: 400px;
+  border-radius: 5px;
+  background-color: #D9D9D9;
+  top: 46%;
+  transform: translateY(-50%);
+  margin: 0px 20px;
+}
+.social {
+  position: relative;
+  float: left;
+  width: auto;
+  height: 30px;
+}
+.socialIcons {
+  position: relative;
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
 }
