@@ -183,11 +183,8 @@ li:hover {
 .boasVindas {
   position: relative;
   float: left;
-  display: flex;
   padding: 20px;
-  flex-direction: column;
-  flex-wrap: wrap;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
 }
 
@@ -218,9 +215,19 @@ p {
 }
 .social {
   position: relative;
-  float: left;
   width: auto;
   height: 30px;
+
+}
+.ulSocial {
+  width: 100%;
+}
+.liSocial {
+  width: 18px;
+}
+.ulSocial > .liSocial {
+  position: relative;
+  display: inline-block;
 }
 .socialIcons {
   position: relative;
@@ -228,4 +235,23 @@ p {
   width: 18px;
   height: 18px;
   margin-right: 10px;
+}
+.navegar {
+  position: relative;
+  width: auto;
+  height: 30px;
+}
+.ulNavegar {
+  width: 100%;
+}
+.liNavegar {
+  width: 18px;
+}
+.ulNavegar > .liNavegar {
+  display: inline-block;
+}
+.textoNavegar {
+  position: relative;
+  float: right;
+  font-size: 15px;
 }
