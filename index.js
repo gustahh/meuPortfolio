@@ -233,7 +233,4 @@ $(document).ready(function () {
             loadPag('', 'background');
         }
     });
-
-    //sobremim.html
-
 });

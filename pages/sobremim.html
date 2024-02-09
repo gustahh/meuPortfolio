@@ -9,22 +9,30 @@
 
 <body>
     <div class="linhas">
-        1 <br>
-        2 <br>
+        
     </div>
     <div class="descricao">
         &lt<span class="tag">h1</span>&gt;Um pouco sobre mim&lt/<span class="tag">h1</span>&gt;
         <br>
-        &lt<span class="tag">p</span>&gt;Meu nome é Gustavo Graciano, conheci o mundo da programação em 2018
-            quando entrei para o curso de informática na Escola Técnica do
-            Rio de Janeiro (ETERJ). Lá pude ter meus primeiros contatos com a
-            programação com a linguagem Portugol, depois evoluindo para C e
-            C# e no último ano do ensino médio pude conhecer o que se tornou a
-            minha paixão, o desenvolvimento de sistemas WEB. Após o término do
-            curso, estagiei durante 6 meses na própria ETERJ e decidi cursar
-            Análise e Desenvolvimento de Sistemas na UNISUAM.&lt<span class="tag">/p&gt;</span>
+        &lt<span class="tag">p</span>&gt;Meu nome é Gustavo Graciano, conheci o 
+        mundo da programação em 2018 quando entrei para o curso de informática 
+        na Escola Técnica do Rio de Janeiro (ETERJ). Lá pude ter meus primeiros 
+        contatos com a programação com a linguagem Portugol, depois evoluindo 
+        para C e C# e no último ano do ensino médio pude conhecer o que se 
+        tornou a minha paixão, o desenvolvimento de sistemas WEB. Após o término 
+        do curso, estagiei durante 6 meses na própria ETERJ e decidi cursar
+        Análise e Desenvolvimento de Sistemas na UNISUAM.&lt/<span class="tag">p</span>&gt;
     </div>
-    <div class=""></div>
+    <div class="linhaLateral"></div>
+    <script>
+        var texto = $('.descricao').html().split("\n");
+        console.log(texto);
+        console.log(texto.length);
+
+        for (i = 1; i < texto.length; i++) {
+            document.querySelector('.linhas').innerHTML += i + `<br>`;
+        }
+    </script>
 </body>
 
 </html>
