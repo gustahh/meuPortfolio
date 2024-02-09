@@ -245,7 +245,7 @@ p {
   width: 100%;
 }
 .liNavegar {
-  width: 18px;
+  width: auto;
 }
 .ulNavegar > .liNavegar {
   display: inline-block;
@@ -254,4 +254,11 @@ p {
   position: relative;
   float: right;
   font-size: 15px;
+}
+.navIcons {
+  position: relative;
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
 }
