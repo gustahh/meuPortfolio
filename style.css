@@ -325,7 +325,7 @@ p {
 .proj {
   position: relative;
   float: left;
-  width: 400px;
+  width: auto;
   height: auto;
   border-radius: 5px;
   background-color: #2C2C2C;
@@ -334,8 +334,8 @@ p {
 .imgProj {
   position: relative;
   float: left;
-  width: 142px;
-  height: 142px;
+  width: 100px;
+  height: 100px;
   border-radius: 5px;
   background-color: #D9D9D9;
 }
