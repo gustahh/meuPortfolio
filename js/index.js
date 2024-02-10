@@ -69,7 +69,7 @@ $(document).ready(function () {
     var contato = 0;
     var guiasTotal = 1;
     $('li').click(function (event) {
-        id = $(this).attr('id');
+        var id = $(this).attr('id');
         console.log(id);
         if (id === 'bemvindo') {
             //carrega função
@@ -234,3 +234,11 @@ $(document).ready(function () {
         }
     });
 });
+
+//portfolio.html
+import { meusProjetos } from "./db.js";
+
+var projetos = meusProjetos();
+
+console.log(projetos);
+
