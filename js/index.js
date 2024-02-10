@@ -1,3 +1,11 @@
+//importa projetos do arquivo db.js
+
+import { meusProjetos } from "./db.js";
+
+var projetos = meusProjetos();
+
+console.log(projetos);
+
 $(document).ready(function () {
     /* carrega página bem vindo por padrão */
     $('.bg').load('pages/bemvindo.html');
@@ -40,6 +48,40 @@ $(document).ready(function () {
            o .prev(), buscando o elemento anterior.
        */
         $('.bg').load('pages/' + nomePag + '.html');
+    }
+
+    function loadPortfolio() {
+        $('.bg').load('pages/portfolio.html', function carregarProjetos() {
+            projetos.forEach(function(projeto) {
+                var projsHTML = `
+                <nav class="classificacao">
+                    <div class="titulo">
+                        <h3 class="tituloNome">Todos os projetos</h3>
+                        <div class="navegacao">
+                            <button class="btnVoltar">
+                                <img src="icons/chevron-left.svg" alt="">
+                            </button>
+                            <button class="btnAdiantar">
+                                <img src="icons/chevron-right.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="proj">
+                        <div class="divImgProj">
+                            <img class="imgProj" src="${projeto.img}">
+                        </div>
+                        <span class="projNome">${projeto.nome}</span>
+                        <br>
+                        <span class="projDesc">${projeto.descricao}</span>
+                        <br>
+                        <span class="projData">${projeto.ano}</span>
+                    </div>
+                </nav>
+            `;
+            var divProjetos = document.querySelector('.projetos');
+            divProjetos.innerHTML += projsHTML;
+            })  
+        });
     }
 
     //troca guias ativas
@@ -123,12 +165,12 @@ $(document).ready(function () {
             }
         } else if (id === 'portfolio') {
             //carrega função
-            loadPag('Portfólio', 'portfolio', $(this));
+            loadPortfolio();
 
             //verifica se a guia já existe, caso contrário a cria
             if (portfolio > 0) {
                 console.log('Guia existente');
-                loadPag('Portfólio', 'portfolio', $(this));
+                loadPortfolio();
                 showClose('[tabindex="portfolio"]');
                 removeId('portfolio');
             } else {
@@ -235,10 +277,5 @@ $(document).ready(function () {
     });
 });
 
-//portfolio.html
-import { meusProjetos } from "./db.js";
 
-var projetos = meusProjetos();
-
-console.log(projetos);
 
