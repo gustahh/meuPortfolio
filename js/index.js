@@ -25,11 +25,6 @@ $(document).ready(function () {
             $(elemento).find('img').attr('src', 'icons/msg-bubble-user-fill.svg');
             $(elemento).next().find('img').attr('src', 'icons/layers.svg');
             $(elemento).next().next().find('img').attr('src', 'icons/at-sign.svg');
-        } else if (nomePag === 'portfolio') {
-            $(elemento).prev().prev().find('img').attr('src', 'icons/house.svg');
-            $(elemento).prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
-            $(elemento).find('img').attr('src', 'icons/layers-fill.svg');
-            $(elemento).next().find('img').attr('src', 'icons/at-sign.svg');
         } else if (nomePag === 'contato') {
             $(elemento).prev().prev().prev().find('img').attr('src', 'icons/house.svg');
             $(elemento).prev().prev().find('img').attr('src', 'icons/msg-bubble-user.svg');
@@ -54,18 +49,7 @@ $(document).ready(function () {
         $('.bg').load('pages/portfolio.html', function carregarProjetos() {
             projetos.forEach(function(projeto) {
                 var projsHTML = `
-                <nav class="classificacao">
-                    <div class="titulo">
-                        <h3 class="tituloNome">Todos os projetos</h3>
-                        <div class="navegacao">
-                            <button class="btnVoltar">
-                                <img src="icons/chevron-left.svg" alt="">
-                            </button>
-                            <button class="btnAdiantar">
-                                <img src="icons/chevron-right.svg" alt="">
-                            </button>
-                        </div>
-                    </div>
+                
                     <div class="proj">
                         <div class="divImgProj">
                             <img class="imgProj" src="${projeto.img}">
@@ -78,9 +62,14 @@ $(document).ready(function () {
                     </div>
                 </nav>
             `;
-            var divProjetos = document.querySelector('.projetos');
+            var divProjetos = document.querySelector('.classificacao');
             divProjetos.innerHTML += projsHTML;
-            })  
+            })
+            $('.nomePag').html('Portfólio');
+            $('#bemvindo').find('img').attr('src', 'icons/house.svg');
+            $('#sobremim').find('img').attr('src', 'icons/msg-bubble-user.svg');
+            $('#portfolio').find('img').attr('src', 'icons/layers-fill.svg');
+            $('#contato').find('img').attr('src', 'icons/at-sign.svg');  
         });
     }
 
