@@ -73,8 +73,12 @@ $(document).ready(function () {
             //btnAdiantar
 
             $('.btnAdiantar').click(function () {
-                const elemento = document.querySelector('.ulProj');
-                elemento.scrollBy({
+                var pai = $(this).parent();
+                var avo = pai.parent()
+                var bisa = avo.parent();
+                const ulId = bisa.find('ul').attr('class');
+                const ul = document.querySelector('.' + ulId);
+                ul.scrollBy({
                     left: 200,
                     behavior: 'smooth'
                   });
@@ -83,8 +87,12 @@ $(document).ready(function () {
             //btnAdiantar
 
             $('.btnVoltar').click(function () {
-                const elemento = document.querySelector('.ulProj');
-                elemento.scrollBy({
+                var pai = $(this).parent();
+                var avo = pai.parent()
+                var bisa = avo.parent();
+                const ulId = bisa.find('ul').attr('class');
+                const ul = document.querySelector('.' + ulId);
+                ul.scrollBy({
                     left: -200,
                     behavior: 'smooth'
                   });
