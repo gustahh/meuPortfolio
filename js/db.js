@@ -1,3 +1,4 @@
+//criar projetos
 function Projeto(nome, descricao, url, dia, mes, ano, img) {
     this.nome = nome;
     this.descricao = descricao;
@@ -21,11 +22,19 @@ var projeto = new Projeto('Projeto', 'Projeto',
 
 var projetos = [chatphp, parasito, projeto];
 
-var fixado = [chatphp];
-
 export function meusProjetos() {
     return projetos;  
 }
+
+//criar fixados
+
+function Fixar(fixar, recado) {
+    this.fixar = fixar;
+    this.recado = recado;
+}
+
+var novoFixado = new Fixar(chatphp, 'Meu novo projeto. 💙');
+var fixado = [novoFixado];
 
 export function meuFixado() {
     return fixado;

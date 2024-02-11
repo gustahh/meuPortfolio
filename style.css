@@ -391,6 +391,7 @@ p {
   position: relative;
   float: left;
   margin: 0;
+  margin-right: 5px;
 }
 .navegacao {
   position: relative;
