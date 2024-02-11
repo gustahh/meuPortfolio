@@ -319,13 +319,18 @@ p {
   position: relative;
   float: left;
   width: 100%;
-  height: auto;
+  height: 140px;
   background-color: transparent;
 }
-.proj {
+.ulProj {
+  height: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.liProj {
   position: relative;
-  float: left;
-  max-width: 400px;
+  display: inline-block;
+  max-width: 350px;
   height: auto;
   border-radius: 5px;
   background-color: #2C2C2C;
@@ -389,4 +394,27 @@ button {
 }
 button:hover {
   background-color: #2C2C2C;
+}
+
+/* scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2C2C2C;
 }

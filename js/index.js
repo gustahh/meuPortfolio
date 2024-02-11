@@ -49,8 +49,7 @@ $(document).ready(function () {
         $('.bg').load('pages/portfolio.html', function carregarProjetos() {
             projetos.forEach(function(projeto) {
                 var projsHTML = `
-                
-                    <div class="proj">
+                    <li class="liProj">
                         <div class="divImgProj">
                             <img class="imgProj" src="${projeto.img}">
                         </div>
@@ -59,17 +58,37 @@ $(document).ready(function () {
                         <span class="projDesc">${projeto.descricao}</span>
                         <br>
                         <span class="projData">${projeto.ano}</span>
-                    </div>
-                </nav>
+                    </li>
             `;
-            var divProjetos = document.querySelector('.classificacao');
-            divProjetos.innerHTML += projsHTML;
+            var ulProjetos = document.querySelector('.ulProj');
+            ulProjetos.innerHTML += projsHTML;
             })
+            //para mudar svg
             $('.nomePag').html('Portfólio');
             $('#bemvindo').find('img').attr('src', 'icons/house.svg');
             $('#sobremim').find('img').attr('src', 'icons/msg-bubble-user.svg');
             $('#portfolio').find('img').attr('src', 'icons/layers-fill.svg');
-            $('#contato').find('img').attr('src', 'icons/at-sign.svg');  
+            $('#contato').find('img').attr('src', 'icons/at-sign.svg'); 
+            
+            //btnAdiantar
+
+            $('.btnAdiantar').click(function () {
+                const elemento = document.querySelector('.ulProj');
+                elemento.scrollBy({
+                    left: 200,
+                    behavior: 'smooth'
+                  });
+            });
+
+            //btnAdiantar
+
+            $('.btnVoltar').click(function () {
+                const elemento = document.querySelector('.ulProj');
+                elemento.scrollBy({
+                    left: -200,
+                    behavior: 'smooth'
+                  });
+            });
         });
     }
 
