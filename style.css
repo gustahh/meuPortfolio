@@ -321,6 +321,7 @@ p {
   width: 100%;
   height: 140px;
   background-color: transparent;
+  margin: 10px 0px;
 }
 .ulProj {
   height: 100%;
@@ -328,6 +329,18 @@ p {
   white-space: nowrap;
 }
 .liProj {
+  position: relative;
+  display: inline-block;
+  max-width: 350px;
+  height: auto;
+  border-radius: 5px;
+  background-color: #2C2C2C;
+  padding: 10px;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+.proj {
   position: relative;
   display: inline-block;
   max-width: 350px;
@@ -383,6 +396,15 @@ p {
   position: relative;
   float: right;
   padding-right: 20px;
+}
+.mostrar {
+  font-size: 13px;
+  color: #BBBBB5;
+}
+.mostrar:hover {
+  color: #f1f1f1;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 button {

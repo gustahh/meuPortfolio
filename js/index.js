@@ -1,10 +1,9 @@
 //importa projetos do arquivo db.js
 
-import { meusProjetos } from "./db.js";
+import { meusProjetos, meuFixado } from "./db.js";
 
 var projetos = meusProjetos();
-
-console.log(projetos);
+var fixado = meuFixado();
 
 $(document).ready(function () {
     /* carrega página bem vindo por padrão */
@@ -47,6 +46,26 @@ $(document).ready(function () {
 
     function loadPortfolio() {
         $('.bg').load('pages/portfolio.html', function carregarProjetos() {
+
+            //projeto fixado
+            
+            fixado.forEach(function(projFixado) { 
+                var fixadoHTML = `
+                <div class="proj">
+                    <div class="divImgProj">
+                        <img class="imgProj" src="${projFixado.img}">
+                    </div>
+                    <span class="projNome">${projFixado.nome}</span>
+                    <br>
+                    <span class="projDesc">${projFixado.descricao}</span>
+                    <br>
+                    <span class="projData">${projFixado.ano}</span>
+                </div>
+                `; 
+                $('.projFixado').append(fixadoHTML);
+            });        
+
+            //carrega projetos
             projetos.forEach(function(projeto) {
                 var projsHTML = `
                     <li class="liProj">

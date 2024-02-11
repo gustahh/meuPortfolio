@@ -21,7 +21,13 @@ var projeto = new Projeto('Projeto', 'Projeto',
 
 var projetos = [chatphp, parasito, projeto];
 
+var fixado = [chatphp];
+
 export function meusProjetos() {
-    return projetos;
+    return projetos;  
+}
+
+export function meuFixado() {
+    return fixado;
 }
 
