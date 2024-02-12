@@ -5,6 +5,8 @@ import { meusProjetos, meuFixado } from "./db.js";
 var projetos = meusProjetos();
 var fixado = meuFixado();
 
+console.log(fixado);
+
 $(document).ready(function () {
     /* carrega página bem vindo por padrão */
     $('.bg').load('pages/bemvindo.html');
@@ -53,15 +55,16 @@ $(document).ready(function () {
                 var fixadoHTML = `
                 <div class="proj">
                     <div class="divImgProj">
-                        <img class="imgProj" src="${projFixado.img}">
+                        <img class="imgProj" src="${projFixado.fixar.img}">
                     </div>
-                    <span class="projNome">${projFixado.nome}</span>
+                    <span class="projNome">${projFixado.fixar.nome}</span>
                     <br>
-                    <span class="projDesc">${projFixado.descricao}</span>
+                    <span class="projDesc">${projFixado.fixar.descricao}</span>
                     <br>
-                    <span class="projData">${projFixado.ano}</span>
+                    <span class="projData">${projFixado.fixar.ano}</span>
                 </div>
                 `; 
+                $('.textoRecado').html(projFixado.recado);
                 $('.projFixado').append(fixadoHTML);
             });        
 

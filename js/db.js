@@ -33,7 +33,7 @@ function Fixar(fixar, recado) {
     this.recado = recado;
 }
 
-var novoFixado = new Fixar(chatphp, 'Meu novo projeto. 💙');
+var novoFixado = new Fixar(chatphp, 'Recado recado recado');
 var fixado = [novoFixado];
 
 export function meuFixado() {
