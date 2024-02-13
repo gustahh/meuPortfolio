@@ -10,11 +10,11 @@
 <body>
     <div class="containerProj">
         <h2>Projetos</h2>
-        <div class="projetos">        
+        <div class="projetoFixado">        
             <nav class="classificacao">
                 <div class="titulo">
                     <p class="tituloNome" id="fixado">Fixado</p>
-                    <img src="icons/pin-tack.svg" alt="" class="iconPin">
+                    <img src="icons/pin-tack.svg" alt="" class="iconProjs">
                     <div class="recado">
                         <div class="fotoRecado"></div>
                         <p class="textoRecado">fixado</p>
@@ -25,9 +25,10 @@
         </div>
         
         <div class="projetos">        
-            <nav class="classificacao">
+            <nav class="classificacao" id="todos">
                 <div class="titulo">
                     <h3 class="tituloNome">Todos os projetos</h3>
+                    <img src="icons/layers-fill.svg" alt="" class="iconProjs">
                     <div class="navegacao">
                         <button class="btnVoltar">
                             <img src="icons/chevron-left.svg" alt="">
@@ -38,13 +39,13 @@
                     </div>
                 </div>
             <ul class="ulProj"></ul>
-            <p class="mostrar">Mostrar tudo</p>
         </div>
         <br>     
         <div class="projetos">        
-            <nav class="classificacao">
+            <nav class="classificacao" id="favs">
                 <div class="titulo">
-                    <h3 class="tituloNome">Todos os projetos</h3>
+                    <h3 class="tituloNome">Favoritos</h3>
+                    <img src="icons/heart.svg" alt="" class="iconProjs">
                     <div class="navegacao">
                         <button class="btnVoltar">
                             <img src="icons/chevron-left.svg" alt="">
@@ -54,8 +55,7 @@
                         </button>
                     </div>
                 </div>
-            <ul class="ulProj"></ul>
-            <p class="mostrar">Mostrar tudo</p>
+            <ul class="ulFavs"></ul>
         </div>
             
         </div>

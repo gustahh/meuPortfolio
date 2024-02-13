@@ -315,6 +315,16 @@ p {
   width: 100%;
   height: auto;
   background-color: transparent;
+  margin: 0px 0px;
+}
+
+.projetos {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  margin: 20px 0px;
 }
 .classificacao {
   position: relative;
@@ -414,7 +424,7 @@ p {
   float: left;
   color: #626262;
 }
-.iconPin {
+.iconProjs {
   position: relative;
   float: left;
 }
@@ -475,4 +485,22 @@ button:hover {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #2C2C2C;
+}
+
+.ulFavs {
+  height: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.liFavs {
+  position: relative;
+  display: inline-block;
+  max-width: 350px;
+  height: auto;
+  border-radius: 5px;
+  background-color: #2C2C2C;
+  padding: 10px;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-right: 10px;
 }

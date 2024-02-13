@@ -1,11 +1,11 @@
 //importa projetos do arquivo db.js
 
-import { meusProjetos, meuFixado } from "./db.js";
+import { meusProjetos, meuFixado, meusFavs } from "./db.js";
 
 var projetos = meusProjetos();
 var fixado = meuFixado();
-
-console.log(fixado);
+var favs = meusFavs();
+console.log(favs);
 
 $(document).ready(function () {
     /* carrega página bem vindo por padrão */
@@ -85,6 +85,12 @@ $(document).ready(function () {
             var ulProjetos = document.querySelector('.ulProj');
             ulProjetos.innerHTML += projsHTML;
             })
+            if (projetos.length > 2) {
+                var mostrar = `
+                    <p class="mostrar">Mostrar tudo</p>
+                `;
+                $('#todos').append(mostrar);
+            }
             //para mudar svg
             $('.nomePag').html('Portfólio');
             $('#bemvindo').find('img').attr('src', 'icons/house.svg');
@@ -119,6 +125,30 @@ $(document).ready(function () {
                     behavior: 'smooth'
                   });
             });
+
+            //carrega projetos favoritos
+            favs.forEach(function(fav) {
+                var favsHTML = `
+                    <li class="liFavs">
+                        <div class="divImgProj">
+                            <img class="imgProj" src="${fav.proj.img}">
+                        </div>
+                        <span class="projNome">${fav.proj.nome}</span>
+                        <br>
+                        <span class="projDesc">${fav.proj.descricao}</span>
+                        <br>
+                        <span class="projData">${fav.proj.ano}</span>
+                    </li>
+            `;
+            var ulFavs = document.querySelector('.ulFavs');
+            ulFavs.innerHTML += favsHTML;
+            })
+            if (favs.length > 2) {
+                var mostrar = `
+                    <p class="mostrar">Mostrar tudo</p>
+                `;
+                $('#favs').innerHTML += mostrar;
+            }
         });
     }
 
