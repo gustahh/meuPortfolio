@@ -86,6 +86,18 @@ $(document).ready(function () {
             ulProjetos.innerHTML += projsHTML;
             })
             if (projetos.length > 2) {
+                //botao para navegar
+                var navegacao = `
+                    <button class="btnVoltar">
+                        <img src="icons/chevron-left.svg" alt="">
+                    </button>
+                    <button class="btnAdiantar">
+                        <img src="icons/chevron-right.svg" alt="">
+                    </button>
+                `;
+                $('#navTodos').append(navegacao);
+
+                //botao mostrar tudo
                 var mostrar = `
                     <p class="mostrar">Mostrar tudo</p>
                 `;
@@ -144,6 +156,18 @@ $(document).ready(function () {
             ulFavs.innerHTML += favsHTML;
             })
             if (favs.length > 2) {
+                //botao para navegar
+                var navegacao = `
+                    <button class="btnVoltar">
+                        <img src="icons/chevron-left.svg" alt="">
+                    </button>
+                    <button class="btnAdiantar">
+                        <img src="icons/chevron-right.svg" alt="">
+                    </button>
+                `;
+                $('#navFavs').append(navegacao);
+
+                //botao mostrar tudo
                 var mostrar = `
                     <p class="mostrar">Mostrar tudo</p>
                 `;
@@ -281,13 +305,17 @@ $(document).ready(function () {
             }
         }
     });
-    //altera a aba clicando na mesma
+    //altera a guia clicando na mesma
     $('.bar').on('click', '.tab', function () {
         var index = $(this).attr('tabindex');
         var nomePag = $(this).attr('name');
         showClose($(this));
         removeId(index);
-        loadPag(nomePag, index, $('#' + index));
+        if (index === 'portfolio') {
+            loadPortfolio();
+        } else {
+            loadPag(nomePag, index, $('#' + index));
+        } 
     });
 
     //fecha a guia
@@ -320,8 +348,13 @@ $(document).ready(function () {
             console.log(nextIndex);
             var nextName = pai.next().attr('name');
             console.log(nextName);
-            loadPag(nextName, nextIndex, $('#' + nextIndex));
-            removeId(nextIndex);
+            if (nextIndex = 'portfolio') {
+                loadPortfolio();
+                removeId('portfolio');
+            } else {
+                loadPag(nextName, nextIndex, $('#' + nextIndex));
+                removeId(nextIndex);
+            }
             showClose(pai.next());
         } else {
             console.log('não existe');
@@ -329,8 +362,13 @@ $(document).ready(function () {
             console.log(prevIndex);
             var prevName = pai.prev().attr('name');
             console.log(prevName);
-            loadPag(prevName, prevIndex, $('#' + prevIndex));
-            removeId(prevIndex);
+            if (prevIndex = 'portfolio') {
+                loadPortfolio();
+                removeId('portfolio');
+            } else {
+                loadPag(prevName, prevIndex, $('#' + prevIndex));
+                removeId(prevIndex);
+            }
             showClose(pai.prev());
         }
 

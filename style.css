@@ -491,6 +491,7 @@ button:hover {
   height: 100%;
   overflow-x: auto;
   white-space: nowrap;
+  padding-bottom: 50px;
 }
 .liFavs {
   position: relative;
