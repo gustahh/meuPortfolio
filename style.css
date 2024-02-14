@@ -129,7 +129,7 @@ li {
   cursor: pointer;
 }
 
-li:hover {
+.liMenu:hover {
   transform: scale(1.1);
 }
 
@@ -504,4 +504,39 @@ button:hover {
   overflow: hidden;
   margin-top: 5px;
   margin-right: 10px;
+}
+
+/* contato.html */
+
+.containerContato {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  overflow-y: auto;
+}
+#seguir {
+  font-weight: 700;
+}
+.ulSeguir {
+  width: 100%;
+  margin: 5px -5px;
+}
+.liSeguir {
+  width: auto;
+  height: auto;
+}
+.ulSeguir > .liSeguir {
+  position: relative;
+  display: inline-block;
+}
+.socialNome {
+  color: #f1f1f1;
+  position: relative;
+  float: right;
+  font-size: 15px;
+}
+.socialNome:hover {
+  text-decoration: underline;
 }
