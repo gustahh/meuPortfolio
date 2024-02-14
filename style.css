@@ -660,6 +660,8 @@ textarea:focus {
 .btnEnviar {
   position: relative;
   float: right;
+  width: 50px;
+  height: auto;
   background-color: #f1f1f1;
   color: #1A1A1A;
   padding: 5px;
@@ -668,7 +670,10 @@ textarea:focus {
   border-radius: 5px;
   padding: 5px;
   margin: 0px 0px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 .btnEnviar:hover {
+  transform: scale(1.1);
   background-color: #f1f1f1;
 }

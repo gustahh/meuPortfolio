@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../js/index.js"></script>
 </head>
 <body>
     <div class="containerContato">
@@ -34,7 +35,7 @@
             <p class="tituloNome" id="seguir">Fale comigo</p>
             <img src="icons/envelope.svg" alt="" class="iconProjs">
         </div>
-        <form action="" class="mail">
+        <form class="mail" onsubmit="mailto();">
             <label>Nome</label><br><br>
             <input type="text" placeholder="Digite seu nome"><br><br>
             <label>Mensagem</label><br><br>
@@ -42,7 +43,7 @@
             <div class="emailBox">
                 <img src="icons/envelope.svg" alt="" class="iconProjs">
                 <span class="email">gustavocarlos202@gmail.com</span>
-                <button class="btnEnviar">Enviar</button>
+                <input type="submit" class="btnEnviar" value="Enviar">
             </div>
         </form>
     </div>

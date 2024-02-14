@@ -381,6 +381,10 @@ $(document).ready(function () {
             loadPag('', 'background');
         }
     });
+    function mailto() {
+        event.preventDefault();
+        alert('a');
+    }
 });
 
 
