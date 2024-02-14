@@ -214,22 +214,27 @@ p {
   transform: translateY(-50%);
   margin: 0px 20px;
 }
+
 .social {
   position: relative;
   width: auto;
   height: 30px;
 
 }
+
 .ulSocial {
   width: 100%;
 }
+
 .liSocial {
   width: 18px;
 }
-.ulSocial > .liSocial {
+
+.ulSocial>.liSocial {
   position: relative;
   display: inline-block;
 }
+
 .socialIcons {
   position: relative;
   float: left;
@@ -237,25 +242,31 @@ p {
   height: 18px;
   margin-right: 10px;
 }
+
 .navegar {
   position: relative;
   width: auto;
   height: 30px;
 }
+
 .ulNavegar {
   width: 100%;
 }
+
 .liNavegar {
   width: auto;
 }
-.ulNavegar > .liNavegar {
+
+.ulNavegar>.liNavegar {
   display: inline-block;
 }
+
 .textoNavegar {
   position: relative;
   float: right;
   font-size: 15px;
 }
+
 .navIcons {
   position: relative;
   float: left;
@@ -276,6 +287,7 @@ p {
   text-align: center;
   font-family: "JetBrains Mono", monospace;
 }
+
 .descricao {
   position: relative;
   float: left;
@@ -284,6 +296,7 @@ p {
   font-family: "JetBrains Mono", monospace;
   color: #BBBBB5;
 }
+
 .linhaLateral {
   position: relative;
   float: right;
@@ -294,6 +307,7 @@ p {
   border-width: 1px;
   border-left-color: #202020;
 }
+
 .tag {
   color: #3D85DB;
 }
@@ -326,6 +340,7 @@ p {
   background-color: transparent;
   margin: 20px 0px;
 }
+
 .classificacao {
   position: relative;
   float: left;
@@ -334,11 +349,13 @@ p {
   background-color: transparent;
   margin: 10px 0px;
 }
+
 .ulProj {
   height: 100%;
   overflow-x: auto;
   white-space: nowrap;
 }
+
 .liProj {
   position: relative;
   display: inline-block;
@@ -351,6 +368,7 @@ p {
   margin-top: 5px;
   margin-right: 10px;
 }
+
 .proj {
   position: relative;
   display: inline-block;
@@ -363,6 +381,7 @@ p {
   margin-top: 5px;
   margin-right: 10px;
 }
+
 .divImgProj {
   position: relative;
   float: left;
@@ -372,26 +391,31 @@ p {
   background-color: #D9D9D9;
   overflow: hidden;
 }
+
 .imgProj {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
+
 .projNome {
   padding-left: 5px;
   font-weight: 700;
   font-size: 20px;
 }
+
 .projDesc {
   padding-left: 5px;
   font-size: 13px;
   color: #BBBBB5;
 }
+
 .projData {
   padding-left: 5px;
   font-size: 13px;
   color: #BBBBB5;
 }
+
 .titulo {
   position: relative;
   float: left;
@@ -399,35 +423,42 @@ p {
   height: auto;
   margin: 10px 0px;
 }
+
 .tituloNome {
   position: relative;
   float: left;
   margin: 0;
   margin-right: 5px;
 }
+
 .navegacao {
   position: relative;
   float: right;
   padding-right: 20px;
 }
+
 .mostrar {
   font-size: 13px;
   color: #BBBBB5;
 }
+
 .mostrar:hover {
   color: #f1f1f1;
   text-decoration: underline;
   cursor: pointer;
 }
+
 #fixado {
   position: relative;
   float: left;
   color: #626262;
 }
+
 .iconProjs {
   position: relative;
   float: left;
 }
+
 .recado {
   position: relative;
   background-color: #f1f1f1;
@@ -439,12 +470,14 @@ p {
   padding: 5px;
   margin: -5px 5px;
 }
+
 .textoRecado {
   position: relative;
   float: left;
   padding-left: 5px;
   margin: 0;
 }
+
 .fotoRecado {
   position: relative;
   float: left;
@@ -453,6 +486,7 @@ p {
   height: 20px;
   border-radius: 50px;
 }
+
 button {
   background-color: transparent;
   border: none;
@@ -460,6 +494,7 @@ button {
   text-decoration: none;
   cursor: pointer;
 }
+
 button:hover {
   background-color: #2C2C2C;
 }
@@ -493,6 +528,7 @@ button:hover {
   white-space: nowrap;
   padding-bottom: 50px;
 }
+
 .liFavs {
   position: relative;
   display: inline-block;
@@ -516,27 +552,123 @@ button:hover {
   padding: 10px;
   overflow-y: auto;
 }
+
 #seguir {
   font-weight: 700;
 }
+
 .ulSeguir {
   width: 100%;
   margin: 5px -5px;
 }
+
 .liSeguir {
   width: auto;
   height: auto;
 }
-.ulSeguir > .liSeguir {
+
+.ulSeguir>.liSeguir {
   position: relative;
   display: inline-block;
 }
+
 .socialNome {
   color: #f1f1f1;
   position: relative;
   float: right;
   font-size: 15px;
 }
+
 .socialNome:hover {
   text-decoration: underline;
+}
+
+.faleCmg {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+  margin: 10px 0px;
+}
+
+label {
+  position: relative;
+  float: left;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 10px 0px;
+}
+
+form {
+  position: relative;
+  float: left;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  background-color: #2C2C2C;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+input {
+  position: relative;
+  float: left;
+  width: 250px;
+  height: 25px;
+  background-color: #1A1A1A;
+  color: #A0A0A0;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+input:focus {
+  outline: #1A1A1A;
+  border-color: #1A1A1A;
+}
+
+textarea {
+  position: relative;
+  float: left;
+  background-color: #1A1A1A;
+  color: #A0A0A0;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+textarea:focus {
+  outline: #1A1A1A;
+  border-color: #1A1A1A;
+}
+.emailBox {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+  font-size: 10px;
+  padding-bottom: 10px;
+}
+.email {
+  position: relative;
+  float: left;
+  margin: 5px;
+}
+.btnEnviar {
+  position: relative;
+  float: right;
+  background-color: #f1f1f1;
+  color: #1A1A1A;
+  padding: 5px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0px 0px;
+}
+.btnEnviar:hover {
+  background-color: #f1f1f1;
 }
