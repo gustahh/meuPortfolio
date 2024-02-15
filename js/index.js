@@ -43,7 +43,23 @@ $(document).ready(function () {
            cada .next() a mais é um elemento a mais. A lógica se inverte para
            o .prev(), buscando o elemento anterior.
        */
+      if (nomePag === 'contato') {
+        $('.bg').load('pages/' + nomePag + '.html', function mailto() {
+            
+            var btnEnviar = document.querySelector('.btnEnviar');
+
+            btnEnviar.addEventListener('click', () => {
+                event.preventDefault();
+                var assunto = document.querySelector('#assunto').value;
+                var mensagem = document.querySelector('#mensagem').value;
+                console.log(assunto, mensagem);
+                window.location.href = 'mailto:gustavocarlos202@gmail.com?subject=' + assunto + '&body=' + mensagem;
+            });
+        });
+      } else {
         $('.bg').load('pages/' + nomePag + '.html');
+      }
+        
     }
 
     function loadPortfolio() {
@@ -381,10 +397,6 @@ $(document).ready(function () {
             loadPag('', 'background');
         }
     });
-    function mailto() {
-        event.preventDefault();
-        alert('a');
-    }
 });
 
 
