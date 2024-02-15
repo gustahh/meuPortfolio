@@ -1,3 +1,11 @@
+/* galaxy fold */
+@media only screen and (max-width: 280px) { 
+    .icons {
+        width: 20px;
+        height: 20px;
+    }
+}
+/* iphone em geral */
 @media only screen and (max-width: 600px) {
     .dots {
         display: none;
@@ -96,7 +104,7 @@
     }
 
     .descricao {
-        width: 85%;
+        width: 90%;
     }
 
     .linhaLateral {
@@ -104,6 +112,10 @@
     }
 
     /* portfolio.html */
+
+    .ulProj {
+        width: 100%;
+    }
 
     .proj {
         max-width: 300px;
@@ -113,11 +125,26 @@
         max-width: 300px;
     }
 
+    .ulFavs {
+        width: 100%;
+    }
+
     .liFavs {
         max-width: 300px;
     }
 
     .navegacao {
         display: none;
+    }
+}
+/* ipad e outros aparelhos */
+@media only screen and (max-width: 1024px) { 
+    .frame {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+    .bar {
+        height: 4%;
     }
 }

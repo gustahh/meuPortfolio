@@ -25,13 +25,24 @@
     </div>
     <div class="linhaLateral"></div>
     <script>
-        var texto = $('.descricao').html().split("\n");
-        console.log(texto);
-        console.log(texto.length);
-
-        for (i = 1; i < texto.length; i++) {
-            document.querySelector('.linhas').innerHTML += i + `<br>`;
+        function contarLinhas() {
+            var descricao = document.querySelector('.descricao');
+            var fontSize = $('.descricao').css('font-size');
+            var lineHeight = Math.floor(parseInt(fontSize.replace('px','')) * 1.5);
+            var scrollHeight = descricao.scrollHeight;
+            var linhas = scrollHeight / lineHeight;
+            console.log(scrollHeight, '/', lineHeight, '= ', linhas);
+            var round = Math.round(linhas) + 2;
+            console.log(round);
+            for (i = 1; i <= round; i++) {
+                document.querySelector('.linhas').innerHTML += i + `<br>`;
+            }
         }
+        contarLinhas();
+        /*$(window).resize(function(){
+            $('.bg').load('pages/sobremim.html');
+        }); */
+        
     </script>
 </body>
 
