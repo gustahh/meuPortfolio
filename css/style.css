@@ -112,6 +112,9 @@ footer {
   flex-wrap: wrap;
   align-content: center;
 }
+.menuFooter {
+  display: none;
+}
 
 ul {
   position: relative;
