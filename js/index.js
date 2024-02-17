@@ -8,6 +8,15 @@ var favs = meusFavs();
 console.log(favs);
 
 $(document).ready(function () {
+
+    //declara se existe ou não as abas (1 para existe e 0 para não existe)
+    var bemvindo = 1;
+    var sobre = 0;
+    var portfolio = 0;
+    var contato = 0;
+    var PagProjetos = 0;
+    var guiasTotal = 1;
+
     /* carrega página bem vindo por padrão */
     $('.bg').load('pages/bemvindo.html');
     $('[tabindex="bemvindo"]').find('.closeTab').css('display', 'block');;
@@ -43,31 +52,31 @@ $(document).ready(function () {
            cada .next() a mais é um elemento a mais. A lógica se inverte para
            o .prev(), buscando o elemento anterior.
        */
-      if (nomePag === 'contato') {
-        $('.bg').load('pages/' + nomePag + '.html', function mailto() {
-            
-            var btnEnviar = document.querySelector('.btnEnviar');
+        if (nomePag === 'contato') {
+            $('.bg').load('pages/' + nomePag + '.html', function mailto() {
 
-            btnEnviar.addEventListener('click', () => {
-                event.preventDefault();
-                var assunto = document.querySelector('#assunto').value;
-                var mensagem = document.querySelector('#mensagem').value;
-                console.log(assunto, mensagem);
-                window.location.href = 'mailto:gustavocarlos202@gmail.com?subject=' + assunto + '&body=' + mensagem;
+                var btnEnviar = document.querySelector('.btnEnviar');
+
+                btnEnviar.addEventListener('click', () => {
+                    event.preventDefault();
+                    var assunto = document.querySelector('#assunto').value;
+                    var mensagem = document.querySelector('#mensagem').value;
+                    console.log(assunto, mensagem);
+                    window.location.href = 'mailto:gustavocarlos202@gmail.com?subject=' + assunto + '&body=' + mensagem;
+                });
             });
-        });
-      } else {
-        $('.bg').load('pages/' + nomePag + '.html');
-      }
-        
+        } else {
+            $('.bg').load('pages/' + nomePag + '.html');
+        }
+
     }
 
     function loadPortfolio() {
         $('.bg').load('pages/portfolio.html', function carregarProjetos() {
 
             //projeto fixado
-            
-            fixado.forEach(function(projFixado) { 
+
+            fixado.forEach(function (projFixado) {
                 var fixadoHTML = `
                 <div class="proj">
                     <div class="divImgProj">
@@ -79,13 +88,13 @@ $(document).ready(function () {
                     <br>
                     <span class="projData">${projFixado.fixar.ano}</span>
                 </div>
-                `; 
+                `;
                 $('.textoRecado').html(projFixado.recado);
                 $('.projFixado').append(fixadoHTML);
-            });        
+            });
 
             //carrega projetos
-            projetos.forEach(function(projeto) {
+            projetos.forEach(function (projeto) {
                 var projsHTML = `
                     <li class="liProj">
                         <div class="divImgProj">
@@ -98,8 +107,8 @@ $(document).ready(function () {
                         <span class="projData">${projeto.ano}</span>
                     </li>
             `;
-            var ulProjetos = document.querySelector('.ulProj');
-            ulProjetos.innerHTML += projsHTML;
+                var ulProjetos = document.querySelector('.ulProj');
+                ulProjetos.innerHTML += projsHTML;
             })
             if (projetos.length > 2) {
                 //botao para navegar
@@ -118,6 +127,31 @@ $(document).ready(function () {
                     <p class="mostrar">Mostrar tudo</p>
                 `;
                 $('#todos').append(mostrar);
+
+                $('.mostrar').click(function () {
+                    //verifica se a guia já existe, caso contrário a cria
+                    if (PagProjetos > 0) {
+                        console.log('Guia existente');
+                        loadPag('Projetos', 'projetos', $(this));
+                        showClose('[tabindex="projetos"]');
+                        removeId('projetos');
+                    } else {
+                        PagProjetos++;
+                        guiasTotal++;
+                        console.log(PagProjetos);
+                        loadPag('Projetos', 'projetos', $(this));
+                        var newTab = `
+                            <div class="tab" tabindex="projetos" name="Projetos" id="ativa">
+                                <img src="icons/layers-fill.svg" alt="" srcset="" class="iconsTab">
+                                <span class="tabName">Projetos</span>
+                                <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
+                            </div>
+                        `;
+                        $('.bar').append(newTab);
+                        showClose('[tabindex="projetos"]');
+                        removeId('projetos');
+                    }
+                });
             }
             //btnAdiantar
 
@@ -130,7 +164,7 @@ $(document).ready(function () {
                 ul.scrollBy({
                     left: 200,
                     behavior: 'smooth'
-                  });
+                });
             });
 
             //btnAdiantar
@@ -144,11 +178,11 @@ $(document).ready(function () {
                 ul.scrollBy({
                     left: -200,
                     behavior: 'smooth'
-                  });
+                });
             });
 
             //carrega projetos favoritos
-            favs.forEach(function(fav) {
+            favs.forEach(function (fav) {
                 var favsHTML = `
                     <li class="liFavs">
                         <div class="divImgProj">
@@ -161,8 +195,8 @@ $(document).ready(function () {
                         <span class="projData">${fav.proj.ano}</span>
                     </li>
             `;
-            var ulFavs = document.querySelector('.ulFavs');
-            ulFavs.innerHTML += favsHTML;
+                var ulFavs = document.querySelector('.ulFavs');
+                ulFavs.innerHTML += favsHTML;
             })
             if (favs.length > 2) {
                 //botao para navegar
@@ -188,7 +222,7 @@ $(document).ready(function () {
         $('#bemvindo').find('img').attr('src', 'icons/house.svg');
         $('#sobremim').find('img').attr('src', 'icons/msg-bubble-user.svg');
         $('#portfolio').find('img').attr('src', 'icons/layers-fill.svg');
-        $('#contato').find('img').attr('src', 'icons/at-sign.svg'); 
+        $('#contato').find('img').attr('src', 'icons/at-sign.svg');
     }
 
     //troca guias ativas
@@ -211,12 +245,6 @@ $(document).ready(function () {
         thisClose.css('display', 'block');
     }
 
-    //declara se existe ou não as abas (1 para existe e 0 para não existe)
-    var bemvindo = 1;
-    var sobre = 0;
-    var portfolio = 0;
-    var contato = 0;
-    var guiasTotal = 1;
     $('li').click(function (event) {
         var id = $(this).attr('id');
         console.log(id);
@@ -330,7 +358,7 @@ $(document).ready(function () {
             loadPortfolio();
         } else {
             loadPag(nomePag, index, $('#' + index));
-        } 
+        }
     });
 
     //fecha a guia
@@ -352,6 +380,9 @@ $(document).ready(function () {
             guiasTotal--;
         } else if (index === 'contato') {
             contato--;
+            guiasTotal--;
+        } else if (index === 'projetos') {
+            PagProjetos--;
             guiasTotal--;
         }
 

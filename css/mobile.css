@@ -1,10 +1,14 @@
 /* galaxy fold */
-@media only screen and (max-width: 280px) { 
+@media only screen and (max-width: 280px) {
+    .boasVindas {
+        top: 50%;
+    }
     .icons {
         width: 20px;
         height: 20px;
     }
 }
+
 /* iphone em geral */
 @media only screen and (max-width: 600px) {
     .dots {
@@ -94,6 +98,8 @@
     }
 
     .photo {
+        width: 90%;
+        float: left;
         top: 30%;
     }
 
@@ -137,14 +143,80 @@
         display: none;
     }
 }
-/* ipad e outros aparelhos */
-@media only screen and (max-width: 1024px) { 
+
+/* ipad mini */
+@media only screen and (width: 768px) {
     .frame {
         width: 100%;
         height: 100%;
         border-radius: 0px;
     }
+
     .bar {
         height: 4%;
+    }
+
+    .boasVindas {
+        top: 20%;
+        left: 15%;
+        text-align: center;
+    }
+
+    .photo {
+        float: right;
+        width: 95%;
+        height: 60%;
+        top: 30%;
+    }
+}
+
+/* iPad Air */
+@media only screen and (width: 820px) { 
+    .frame {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+
+    .bar {
+        height: 4%;
+    }
+
+    .boasVindas {
+        top: 20%;
+        left: 15%;
+        text-align: center;
+    }
+
+    .photo {
+        float: right;
+        width: 95%;
+        height: 60%;
+        top: 35%;
+    }
+}
+/* iPad pro */
+@media only screen and (width: 1024px) { 
+    .frame {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+
+    .bar {
+        height: 4%;
+    }
+
+    .boasVindas {
+        top: 20%;
+        left: 25%;
+        text-align: center;
+    }
+
+    .photo {
+        float: right;
+        width: 95%;
+        height: 60%;
+        top: 35%;
     }
 }

@@ -680,3 +680,13 @@ textarea:focus {
   transform: scale(1.1);
   background-color: #f1f1f1;
 }
+
+/* projetos.html */
+
+.bgProjeto {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
