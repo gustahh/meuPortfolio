@@ -96,9 +96,6 @@ $(document).ready(function () {
             })
         });
     }
-    $('.voltar').click(function () {
-        alert('a');
-    });
     function loadPortfolio() {
         $('.bg').load('pages/portfolio.html', function carregarProjetos() {
 
@@ -253,6 +250,14 @@ $(document).ready(function () {
         $('#portfolio').find('img').attr('src', 'icons/layers-fill.svg');
         $('#contato').find('img').attr('src', 'icons/at-sign.svg');
     }
+    //volta para página portfólio
+    function voltar () {
+        loadPortfolio();
+        $('.voltar').css('display', 'none');
+    }
+    $('.voltar').click(function () {
+        voltar();
+    });
 
     //troca guias ativas
     function removeId(tabindex) {
