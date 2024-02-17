@@ -71,6 +71,34 @@ $(document).ready(function () {
 
     }
 
+    function loadProjetos() {
+        $('.bg').load('pages/projetos.html', function carregarTodosOsProjetos() {
+            //carrega projetos
+            projetos.forEach(function (projeto) {
+                var projsHTML = `
+            <div class="proj">
+                <div class="divImgProj">
+                    <img class="imgProj" src="${projeto.img}">
+                </div>
+                <span class="projNome">${projeto.nome}</span>
+                <br>
+                <span class="projDesc">${projeto.descricao}</span>
+                <br>
+                <span class="projData">${projeto.ano}</span>
+            </div>
+    `;
+                var bgProjeto = document.querySelector('.bgProjeto');
+                bgProjeto.innerHTML += projsHTML;
+
+                if ($(window).width() <= 600) {
+                   $('.voltar').css('display', 'block');
+                }
+            })
+        });
+    }
+    $('.voltar').click(function () {
+        alert('a');
+    });
     function loadPortfolio() {
         $('.bg').load('pages/portfolio.html', function carregarProjetos() {
 
@@ -132,14 +160,14 @@ $(document).ready(function () {
                     //verifica se a guia já existe, caso contrário a cria
                     if (PagProjetos > 0) {
                         console.log('Guia existente');
-                        loadPag('Projetos', 'projetos', $(this));
+                        loadProjetos();
                         showClose('[tabindex="projetos"]');
                         removeId('projetos');
                     } else {
                         PagProjetos++;
                         guiasTotal++;
                         console.log(PagProjetos);
-                        loadPag('Projetos', 'projetos', $(this));
+                        loadProjetos();
                         var newTab = `
                             <div class="tab" tabindex="projetos" name="Projetos" id="ativa">
                                 <img src="icons/layers-fill.svg" alt="" srcset="" class="iconsTab">
@@ -151,6 +179,7 @@ $(document).ready(function () {
                         showClose('[tabindex="projetos"]');
                         removeId('projetos');
                     }
+
                 });
             }
             //btnAdiantar

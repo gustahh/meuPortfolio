@@ -690,3 +690,15 @@ textarea:focus {
   height: 100%;
   background-color: transparent;
 }
+
+.voltar {
+  display: none;
+  position: relative;
+  float: left;
+  margin: 7px 0px;
+  background-color: red;
+}
+.iconVoltar {
+  width: 20px;
+  height: 20px;
+}
