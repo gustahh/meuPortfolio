@@ -450,6 +450,9 @@ p {
   text-decoration: underline;
   cursor: pointer;
 }
+#fav {
+  padding-bottom: 70px;
+}
 
 #fixado {
   position: relative;
@@ -529,7 +532,6 @@ button:hover {
   height: 100%;
   overflow-x: auto;
   white-space: nowrap;
-  padding-bottom: 50px;
 }
 
 .liFavs {

@@ -97,6 +97,31 @@ $(document).ready(function () {
             })
         });
     }
+    function loadFavs() {
+        $('.bg').load('pages/favoritos.html', function carregarFavoritos() {
+            //carrega projetos
+            favs.forEach(function (fav) {
+                var projsHTML = `
+            <div class="proj">
+                <div class="divImgProj">
+                    <img class="imgProj" src="${fav.proj.img}">
+                </div>
+                <span class="projNome">${fav.proj.nome}</span>
+                <br>
+                <span class="projDesc">${fav.proj.descricao}</span>
+                <br>
+                <span class="projData">${fav.proj.ano}</span>
+            </div>
+    `;
+                var bgProjeto = document.querySelector('.bgProjeto');
+                bgProjeto.innerHTML += projsHTML;
+
+                if ($(window).width() <= 600) {
+                   $('.voltar').css('display', 'block');
+                }
+            })
+        });
+    }
     function loadPortfolio() {
         $('.bg').load('pages/portfolio.html', function carregarProjetos() {
 
@@ -241,9 +266,35 @@ $(document).ready(function () {
 
                 //botao mostrar tudo
                 var mostrar = `
-                    <p class="mostrar">Mostrar tudo</p>
+                    <p class="mostrar" id="fav">Mostrar tudo</p>
                 `;
                 $('#favs').append(mostrar);
+
+                $('#fav').click(function () {
+                    //verifica se a guia já existe, caso contrário a cria
+                    if (pagFavs > 0) {
+                        console.log('Guia existente');
+                        loadFavs();
+                        showClose('[tabindex="favoritos"]');
+                        removeId('projetos');
+                    } else {
+                        PagProjetos++;
+                        guiasTotal++;
+                        console.log(PagProjetos);
+                        loadFavs();
+                        var newTab = `
+                            <div class="tab" tabindex="favoritos" name="Favoritos" id="ativa">
+                                <img src="icons/heart.svg" alt="" srcset="" class="iconsTab">
+                                <span class="tabName">Favoritos</span>
+                                <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
+                            </div>
+                        `;
+                        $('.bar').append(newTab);
+                        showClose('[tabindex="favoritos"]');
+                        removeId('favoritos');
+                    }
+
+                });
             }
         });
         //para mudar svg
@@ -261,7 +312,6 @@ $(document).ready(function () {
     $('.voltar').click(function () {
         voltar();
     });
-
     //troca guias ativas
     function removeId(tabindex) {
         //remove id e adiciona a guia atual
@@ -393,6 +443,12 @@ $(document).ready(function () {
         removeId(index);
         if (index === 'portfolio') {
             loadPortfolio();
+        } else if (index === 'projetos') {
+            loadProjetos();
+            removeId('projetos');
+        } else if (index === 'favoritos') {
+            loadFavs();
+            removeId('favoritos');
         } else {
             loadPag(nomePag, index, $('#' + index));
         }
@@ -421,6 +477,9 @@ $(document).ready(function () {
         } else if (index === 'projetos') {
             PagProjetos--;
             guiasTotal--;
+        } else if (index === 'favoritos') {
+            pagFavs--;
+            guiasTotal--;
         }
 
         /*carrega a guia a direita se existir, caso contrário carrega a 
@@ -434,6 +493,12 @@ $(document).ready(function () {
             if (nextIndex === 'portfolio') {
                 loadPortfolio();
                 removeId('portfolio');
+            } else if (nextIndex === 'projetos') {
+                loadProjetos();
+                removeId('projetos');
+            } else if (nextIndex === 'favoritos') {
+                loadFavs();
+                removeId('favoritos');
             } else {
                 loadPag(nextName, nextIndex, $('#' + nextIndex));
                 removeId(nextIndex);
@@ -448,6 +513,12 @@ $(document).ready(function () {
             if (prevIndex === 'portfolio') {
                 loadPortfolio();
                 removeId('portfolio');
+            } else if (prevIndex === 'projetos') {
+                loadProjetos();
+                removeId('projetos');
+            } else if (prevIndex === 'favoritos') {
+                loadFavs();
+                removeId('favoritos');
             } else {
                 console.log('else', prevName, prevIndex, $('#' + prevIndex));
                 loadPag(prevName, prevIndex, $('#' + prevIndex));
