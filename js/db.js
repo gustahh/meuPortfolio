@@ -50,7 +50,8 @@ function Favoritar(proj) {
 
 var favChat = new Favoritar(chatphp);
 var favParasito = new Favoritar(parasito);
-var favs = [favChat, favParasito];
+var favProj = new Favoritar(projeto);
+var favs = [favChat, favParasito, favProj];
 
 export function meusFavs() {
     return favs;

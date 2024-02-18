@@ -15,6 +15,7 @@ $(document).ready(function () {
     var portfolio = 0;
     var contato = 0;
     var PagProjetos = 0;
+    var pagFavs = 0;
     var guiasTotal = 1;
 
     /* carrega página bem vindo por padrão */
@@ -181,12 +182,13 @@ $(document).ready(function () {
             }
             //btnAdiantar
 
-            $('.btnAdiantar').click(function () {
+            $(document).on('click', '.btnAdiantar', function () {
                 var pai = $(this).parent();
                 var avo = pai.parent()
                 var bisa = avo.parent();
                 const ulId = bisa.find('ul').attr('class');
                 const ul = document.querySelector('.' + ulId);
+                console.log(ul);
                 ul.scrollBy({
                     left: 200,
                     behavior: 'smooth'
@@ -195,12 +197,13 @@ $(document).ready(function () {
 
             //btnAdiantar
 
-            $('.btnVoltar').click(function () {
+            $(document).on('click', '.btnVoltar', function () {
                 var pai = $(this).parent();
                 var avo = pai.parent()
                 var bisa = avo.parent();
                 const ulId = bisa.find('ul').attr('class');
                 const ul = document.querySelector('.' + ulId);
+                console.log(ul);
                 ul.scrollBy({
                     left: -200,
                     behavior: 'smooth'
@@ -240,7 +243,7 @@ $(document).ready(function () {
                 var mostrar = `
                     <p class="mostrar">Mostrar tudo</p>
                 `;
-                $('#favs').innerHTML += mostrar;
+                $('#favs').append(mostrar);
             }
         });
         //para mudar svg
