@@ -152,8 +152,15 @@
         border-radius: 0px;
     }
 
+    header {
+        height: 2%;
+    }
+    main {
+        height: 95%;
+    }
+    
     .bar {
-        height: 4%;
+        height: 3%;
     }
 
     .boasVindas {
@@ -178,8 +185,14 @@
         border-radius: 0px;
     }
 
+    header {
+        height: 2%;
+    }
+    main {
+        height: 95%;
+    }
     .bar {
-        height: 4%;
+        height: 3%;
     }
 
     .boasVindas {
@@ -203,8 +216,15 @@
         border-radius: 0px;
     }
 
+    header {
+        height: 2%;
+    }
+    main {
+        height: 95%;
+    }
+
     .bar {
-        height: 4%;
+        height: 3%;
     }
 
     .boasVindas {

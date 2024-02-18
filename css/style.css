@@ -8,6 +8,11 @@ body {
   color: #f1f1f1;
 }
 
+a {
+  color: #f1f1f1;
+  text-decoration: none;
+ }
+
 .flex-box {
   display: flex;
   align-items: center;
@@ -402,18 +407,24 @@ p {
 }
 
 .projNome {
+  position: relative;
+  float: left;
   padding-left: 5px;
   font-weight: 700;
   font-size: 20px;
 }
 
 .projDesc {
+  position: relative;
+  float: left;
   padding-left: 5px;
   font-size: 13px;
   color: #BBBBB5;
 }
 
 .projData {
+  position: relative;
+  float: left;
   padding-left: 5px;
   font-size: 13px;
   color: #BBBBB5;

@@ -11,17 +11,18 @@ function Projeto(nome, descricao, url, dia, mes, ano, img) {
 //cria projetos
 var parasito = new Projeto
 ('Projeto Parasito', 
-'Projeto feito em colaboração com o curso de medicina veterinária da UNISUAM.',
+'Projeto feito em colaboração com o <br> curso de medicina veterinária da <br> UNISUAM.',
 'https://gustahh.github.io/parasito-beta-1.0.0/',  
 27, 'Outubro', 2023, 'img/parasito.png');
 
 var chatphp = new Projeto('Chat PHP com MySQL', 'Chat em PHP com MySQL.', 
 'https://github.com/gustahh/chatphp', 23, 'Outubro', 2023, 'img/chatphp.png');
 
-var projeto = new Projeto('Projeto', 'Projeto', 
-'', 23, 'Outubro', 2023, 'img/chatphp.png');
+var bodyMovin = new Projeto('Toggle', 
+'BodyMovin, uma extensão do <br> After Effects que permite rodar <br> animações no HTML.', 
+'https://gustahh.github.io/toggle/', 20, 'Março', 2020, 'img/toggle.gif');
 
-var projetos = [chatphp, parasito, projeto];
+var projetos = [chatphp, parasito, bodyMovin];
 
 export function meusProjetos() {
     return projetos;  
@@ -50,8 +51,7 @@ function Favoritar(proj) {
 
 var favChat = new Favoritar(chatphp);
 var favParasito = new Favoritar(parasito);
-var favProj = new Favoritar(projeto);
-var favs = [favChat, favParasito, favProj];
+var favs = [favChat, favParasito];
 
 export function meusFavs() {
     return favs;

@@ -77,16 +77,18 @@ $(document).ready(function () {
             //carrega projetos
             projetos.forEach(function (projeto) {
                 var projsHTML = `
-            <div class="proj">
-                <div class="divImgProj">
-                    <img class="imgProj" src="${projeto.img}">
+                <a href="${projeto.url}" target="_blank">
+                <div class="proj">
+                    <div class="divImgProj">
+                        <img class="imgProj" src="${projeto.img}">
+                    </div>
+                    <span class="projNome" title="${projeto.nome}">${projeto.nome}</span>
+                    <br>
+                    <span class="projDesc" title="${projeto.descricao}">${projeto.descricao}</span>
+                    <br>
+                    <span class="projData" title="${projeto.ano}">${projeto.ano}</span>
                 </div>
-                <span class="projNome">${projeto.nome}</span>
-                <br>
-                <span class="projDesc">${projeto.descricao}</span>
-                <br>
-                <span class="projData">${projeto.ano}</span>
-            </div>
+                </a>
     `;
                 var bgProjeto = document.querySelector('.bgProjeto');
                 bgProjeto.innerHTML += projsHTML;
@@ -102,17 +104,19 @@ $(document).ready(function () {
             //carrega projetos
             favs.forEach(function (fav) {
                 var projsHTML = `
-            <div class="proj">
-                <div class="divImgProj">
-                    <img class="imgProj" src="${fav.proj.img}">
-                </div>
-                <span class="projNome">${fav.proj.nome}</span>
-                <br>
-                <span class="projDesc">${fav.proj.descricao}</span>
-                <br>
-                <span class="projData">${fav.proj.ano}</span>
-            </div>
-    `;
+                <a href="${fav.proj.url}" target="_blank">
+                    <div class="proj">
+                        <div class="divImgProj">
+                            <img class="imgProj" src="${fav.proj.img}">
+                        </div>
+                        <span class="projNome" title="${fav.proj.nome}">${fav.proj.nome}</span>
+                        <br>
+                        <span class="projDesc" title="${fav.proj.descricao}">${fav.proj.descricao}</span>
+                        <br>
+                        <span class="projData" title="${fav.proj.ano}">${fav.proj.ano}</span>
+                    </div>
+                </a>
+                `;
                 var bgProjeto = document.querySelector('.bgProjeto');
                 bgProjeto.innerHTML += projsHTML;
 
@@ -129,16 +133,19 @@ $(document).ready(function () {
 
             fixado.forEach(function (projFixado) {
                 var fixadoHTML = `
-                <div class="proj">
-                    <div class="divImgProj">
-                        <img class="imgProj" src="${projFixado.fixar.img}">
+                <a href="${projFixado.fixar.url}" target="_blank">
+                    <div class="proj">
+                        <div class="divImgProj">
+                            <img class="imgProj" src="${projFixado.fixar.img}">
+                        </div>
+                        <span class="projNome" title="${projFixado.fixar.nome}">${projFixado.fixar.nome}</span>
+                        <br>
+                        <span class="projDesc" title="${projFixado.fixar.descricao}">${projFixado.fixar.descricao}</span>
+                        <br>
+                        <span class="projData" title="${projFixado.fixar.ano}">${projFixado.fixar.ano}</span>
                     </div>
-                    <span class="projNome">${projFixado.fixar.nome}</span>
-                    <br>
-                    <span class="projDesc">${projFixado.fixar.descricao}</span>
-                    <br>
-                    <span class="projData">${projFixado.fixar.ano}</span>
-                </div>
+                </a>
+                
                 `;
                 $('.textoRecado').html(projFixado.recado);
                 $('.projFixado').append(fixadoHTML);
@@ -147,16 +154,18 @@ $(document).ready(function () {
             //carrega projetos
             projetos.forEach(function (projeto) {
                 var projsHTML = `
+                <a href="${projeto.url}" target="_blank">
                     <li class="liProj">
                         <div class="divImgProj">
                             <img class="imgProj" src="${projeto.img}">
                         </div>
-                        <span class="projNome">${projeto.nome}</span>
+                        <span class="projNome" title="${projeto.nome}">${projeto.nome}</span>
                         <br>
-                        <span class="projDesc">${projeto.descricao}</span>
-                        <br>
-                        <span class="projData">${projeto.ano}</span>
+                        <span class="projDesc" title="${projeto.descricao}">${projeto.descricao}</span>
+                        <br><br><br>
+                        <span class="projData" title="${projeto.ano}">${projeto.ano}</span>
                     </li>
+                </a>    
             `;
                 var ulProjetos = document.querySelector('.ulProj');
                 ulProjetos.innerHTML += projsHTML;
@@ -238,6 +247,7 @@ $(document).ready(function () {
             //carrega projetos favoritos
             favs.forEach(function (fav) {
                 var favsHTML = `
+                <a href="${fav.proj.url}" target="_blank">
                     <li class="liFavs">
                         <div class="divImgProj">
                             <img class="imgProj" src="${fav.proj.img}">
@@ -248,6 +258,7 @@ $(document).ready(function () {
                         <br>
                         <span class="projData">${fav.proj.ano}</span>
                     </li>
+                </a>
             `;
                 var ulFavs = document.querySelector('.ulFavs');
                 ulFavs.innerHTML += favsHTML;
@@ -303,6 +314,12 @@ $(document).ready(function () {
         $('#sobremim').find('img').attr('src', 'icons/msg-bubble-user.svg');
         $('#portfolio').find('img').attr('src', 'icons/layers-fill.svg');
         $('#contato').find('img').attr('src', 'icons/at-sign.svg');
+        //mobile
+        $('li#bemvindo.liFooter').find('img').attr('src', 'icons/house.svg');
+        $('li#sobremim.liFooter').find('img').attr('src', 'icons/msg-bubble-user.svg');
+        $('li#portfolio.liFooter').find('img').attr('src', 'icons/layers-fill.svg');
+        $('li#contato.liFooter').find('img').attr('src', 'icons/at-sign.svg');
+
     }
     //volta para página portfólio
     function voltar () {
