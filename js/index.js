@@ -78,7 +78,7 @@ $(document).ready(function () {
             projetos.forEach(function (projeto) {
                 var projsHTML = `
                 <a href="${projeto.url}" target="_blank">
-                <div class="proj">
+                <div class="projAll">
                     <div class="divImgProj">
                         <img class="imgProj" src="${projeto.img}">
                     </div>
@@ -134,7 +134,7 @@ $(document).ready(function () {
             fixado.forEach(function (projFixado) {
                 var fixadoHTML = `
                 <a href="${projFixado.fixar.url}" target="_blank">
-                    <div class="proj">
+                    <div class="projFixado">
                         <div class="divImgProj">
                             <img class="imgProj" src="${projFixado.fixar.img}">
                         </div>
@@ -306,6 +306,8 @@ $(document).ready(function () {
                     }
 
                 });
+            } else {
+                $('.ulFavs').css('padding-bottom', '50px');
             }
         });
         //para mudar svg

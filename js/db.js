@@ -36,7 +36,7 @@ function Fixar(fixar, recado) {
 }
 
 //cria fixado
-var novoFixado = new Fixar(chatphp, 'Recado recado recado');
+var novoFixado = new Fixar(parasito, 'Meu projeto mais recente. ✌️');
 var fixado = [novoFixado];
 
 export function meuFixado() {
