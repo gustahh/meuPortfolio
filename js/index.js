@@ -8,6 +8,7 @@ var favs = meusFavs();
 console.log(favs);
 
 $(document).ready(function () {
+    //funcoes
 
     //declara se existe ou não as abas (1 para existe e 0 para não existe)
     var bemvindo = 1;
@@ -18,9 +19,7 @@ $(document).ready(function () {
     var pagFavs = 0;
     var guiasTotal = 1;
 
-    /* carrega página bem vindo por padrão */
-    $('.bg').load('pages/bemvindo.html');
-    $('[tabindex="bemvindo"]').find('.closeTab').css('display', 'block');;
+
     /* função para carregar página */
 
     function loadPag(pag, nomePag, elemento) {
@@ -94,7 +93,7 @@ $(document).ready(function () {
                 bgProjeto.innerHTML += projsHTML;
 
                 if ($(window).width() <= 600) {
-                   $('.voltar').css('display', 'block');
+                    $('.voltar').css('display', 'block');
                 }
             })
         });
@@ -121,7 +120,7 @@ $(document).ready(function () {
                 bgProjeto.innerHTML += projsHTML;
 
                 if ($(window).width() <= 600) {
-                   $('.voltar').css('display', 'block');
+                    $('.voltar').css('display', 'block');
                 }
             })
         });
@@ -324,7 +323,7 @@ $(document).ready(function () {
 
     }
     //volta para página portfólio
-    function voltar () {
+    function voltar() {
         loadPortfolio();
         $('.voltar').css('display', 'none');
     }
@@ -351,12 +350,106 @@ $(document).ready(function () {
         thisClose.css('display', 'block');
     }
 
+    function navegacao() {
+        $(document).on('click', '.liNavegar', function (event) {
+            var index = $(this).attr('tabindex');
+            console.log(index);
+            if (index === 'sobremim') {
+                //carrega função
+                loadPag('Sobre mim', 'sobremim', '#sobremim');
+
+
+
+                //verifica se a guia já existe, caso contrário a cria
+                if (sobre > 0) {
+                    console.log('Guia existente');
+                    loadPag('Sobre mim', 'sobremim', '#sobremim');
+                    showClose('[tabindex="sobremim"]');
+                    removeId('sobremim');
+                } else {
+                    sobre++;
+                    guiasTotal++;
+                    console.log(sobre);
+                    var newTab = `
+                <div class="tab" tabindex="sobremim" name="Sobre mim">
+                    <img src="icons/msg-bubble-user-fill.svg" alt="" srcset="" class="iconsTab">
+                    <span class="tabName">Sobre mim</span>
+                    <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
+                </div>
+                `;
+                    $('.bar').append(newTab);
+                    showClose('[tabindex="sobremim"]');
+                    removeId('sobremim');
+                }
+            } else if (index === 'portfolio') {
+                //carrega função
+                loadPortfolio();
+
+                //verifica se a guia já existe, caso contrário a cria
+                if (portfolio > 0) {
+                    console.log('Guia existente');
+                    loadPortfolio();
+                    showClose('[tabindex="portfolio"]');
+                    removeId('portfolio');
+                } else {
+                    portfolio++;
+                    guiasTotal++;
+                    var newTab = `
+                <div class="tab" tabindex="portfolio" name="Portfólio">
+                    <img src="icons/layers-fill.svg" alt="" srcset="" class="iconsTab">
+                    <span class="tabName">Portfólio</span>
+                    <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
+                </div>
+                `;
+                    $('.bar').append(newTab);
+                    showClose('[tabindex="portfolio"]');
+                    removeId('portfolio');
+                }
+            } else if (index === 'contato') {
+                //carrega função
+                loadPag('Contato', 'contato', '#contato');
+
+                //verifica se a guia já existe, caso contrário a cria
+                if (contato > 0) {
+                    console.log('Guia existente');
+                    loadPag('Contato', 'contato', '#contato');
+                    showClose('[tabindex="contato"]');
+                    removeId('contato');
+                } else {
+                    contato++;
+                    guiasTotal++;
+                    var newTab = `
+                <div class="tab" tabindex="contato" name="Contato">
+                    <img src="icons/at-sign-fill.svg" alt="" srcset="" class="iconsTab">
+                    <span class="tabName">Contato</span>
+                    <img src="icons/xmark.svg" alt="" srcset="" class="closeTab">
+                </div>
+                `;
+                    $('.bar').append(newTab);
+                    showClose('[tabindex="contato"]');
+                    removeId('contato');
+                }
+            }
+        });
+    }
+    //codigo
+
+    /* carrega página bem vindo por padrão */
+    $('.bg').load('pages/bemvindo.html', function () {
+        navegacao();
+    });
+    $('[tabindex="bemvindo"]').find('.closeTab').css('display', 'block');
+
+    //clica na li
+
     $('li').click(function (event) {
         var id = $(this).attr('id');
         console.log(id);
         if (id === 'bemvindo') {
             //carrega função
-            loadPag('Bem vindo!', 'bemvindo', $(this));
+            loadPag('Bem vindo!', 'bemvindo', $(this)), function () {
+                navegacao();
+            };
 
             //verifica se a guia já existe, caso contrário a cria
             if (bemvindo > 0) {
