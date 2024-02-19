@@ -3,6 +3,7 @@
     .boasVindas {
         top: 50%;
     }
+
     .icons {
         width: 20px;
         height: 20px;
@@ -47,6 +48,14 @@
         height: 10%;
         border-radius: 10px;
         background-color: #2C2C2C;
+    }
+
+    .footerIcons {
+        display: none;
+    }
+
+    .rights {
+        display: none;
     }
 
     .nomePag {
@@ -102,9 +111,11 @@
         float: left;
         top: 30%;
     }
+
     .myPhoto {
-        margin: 0px ;
-      }
+        margin: 0px;
+    }
+
     /* sobremim.html */
 
     .linhas {
@@ -157,10 +168,11 @@
     header {
         height: 2%;
     }
+
     main {
         height: 95%;
     }
-    
+
     .bar {
         height: 3%;
     }
@@ -177,15 +189,16 @@
         height: 60%;
         top: 30%;
     }
+
     .myPhoto {
         width: 100%;
         height: 120%;
         margin: -100px 0px;
-      }
+    }
 }
 
 /* iPad Air */
-@media only screen and (width: 820px) { 
+@media only screen and (width: 820px) {
     .frame {
         width: 100%;
         height: 100%;
@@ -195,9 +208,11 @@
     header {
         height: 2%;
     }
+
     main {
         height: 95%;
     }
+
     .bar {
         height: 3%;
     }
@@ -214,14 +229,16 @@
         height: 60%;
         top: 35%;
     }
+
     .myPhoto {
         width: 100%;
         height: 110%;
         margin: -60px 0px;
-      }
+    }
 }
+
 /* iPad pro */
-@media only screen and (width: 1024px) { 
+@media only screen and (width: 1024px) {
     .frame {
         width: 100%;
         height: 100%;
@@ -231,6 +248,7 @@
     header {
         height: 2%;
     }
+
     main {
         height: 95%;
     }
@@ -251,9 +269,10 @@
         height: 60%;
         top: 35%;
     }
+
     .myPhoto {
         width: 100%;
         height: 120%;
         margin: -100px 0px;
-      }
+    }
 }

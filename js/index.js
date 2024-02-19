@@ -356,14 +356,21 @@ $(document).ready(function () {
             console.log(index);
             if (index === 'sobremim') {
                 //carrega função
-                loadPag('Sobre mim', 'sobremim', '#sobremim');
-
-
+                if ($(window).width() <= 600) {
+                    loadPag('Sobre mim', 'sobremim', 'li#sobremim.liFooter');
+                } else {
+                    loadPag('Sobre mim', 'sobremim', '#sobremim');
+                }
 
                 //verifica se a guia já existe, caso contrário a cria
                 if (sobre > 0) {
                     console.log('Guia existente');
-                    loadPag('Sobre mim', 'sobremim', '#sobremim');
+                    if ($(window).width() <= 600) {
+                        loadPag('Sobre mim', 'sobremim', 'li#sobremim.liFooter');
+                    } else {
+                        loadPag('Sobre mim', 'sobremim', '#sobremim');
+                    }
+                    
                     showClose('[tabindex="sobremim"]');
                     removeId('sobremim');
                 } else {
@@ -407,12 +414,20 @@ $(document).ready(function () {
                 }
             } else if (index === 'contato') {
                 //carrega função
-                loadPag('Contato', 'contato', '#contato');
+                if ($(window).width() <= 600) {
+                    loadPag('Contato', 'contato', 'li#contato.liFooter');
+                } else {
+                    loadPag('Contato', 'contato', '#contato');
+                }
 
                 //verifica se a guia já existe, caso contrário a cria
                 if (contato > 0) {
                     console.log('Guia existente');
-                    loadPag('Contato', 'contato', '#contato');
+                    if ($(window).width() <= 600) {
+                        loadPag('Contato', 'contato', 'li#contato.liFooter');
+                    } else {
+                        loadPag('Contato', 'contato', '#contato');
+                    }
                     showClose('[tabindex="contato"]');
                     removeId('contato');
                 } else {

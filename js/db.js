@@ -22,7 +22,7 @@ var bodyMovin = new Projeto('Toggle',
 'BodyMovin, uma extensão do <br> After Effects que permite rodar <br> animações no HTML.', 
 'https://gustahh.github.io/toggle/', 20, 'Março', 2020, 'img/toggle.gif');
 
-var projetos = [chatphp, parasito, bodyMovin];
+var projetos = [parasito, chatphp, bodyMovin];
 
 export function meusProjetos() {
     return projetos;  
@@ -51,7 +51,7 @@ function Favoritar(proj) {
 
 var favChat = new Favoritar(chatphp);
 var favParasito = new Favoritar(parasito);
-var favs = [favChat, favParasito];
+var favs = [favParasito, favChat];
 
 export function meusFavs() {
     return favs;
