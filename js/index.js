@@ -84,7 +84,7 @@ $(document).ready(function () {
                     <span class="projNome" title="${projeto.nome}">${projeto.nome}</span>
                     <br>
                     <span class="projDesc" title="${projeto.descricao}">${projeto.descricao}</span>
-                    <br>
+                    <br><br>
                     <span class="projData" title="${projeto.ano}">${projeto.ano}</span>
                 </div>
                 </a>

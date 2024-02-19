@@ -137,11 +137,30 @@
     }
 
     .proj {
-        max-width: 350px;
+        max-width: 300px;
+    }
+    .projAll {
+        max-width: 320px;
+    }
+
+    .projFixado {
+        max-width: 300px;
     }
 
     .liProj {
-        max-width: 350px;
+        max-width: 300px;
+    }
+
+    .projNome {
+        font-size: 16px;
+    }
+
+    .projDesc {
+        font-size: 10px;
+    }
+
+    .projAno {
+        font-size: 10px;
     }
 
     .ulFavs {
@@ -149,7 +168,7 @@
     }
 
     .liFavs {
-        max-width: 350px;
+        max-width: 300px;
     }
 
     .navegacao {
