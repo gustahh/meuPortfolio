@@ -62,7 +62,7 @@ $(document).ready(function () {
                     var assunto = document.querySelector('#assunto').value;
                     var mensagem = document.querySelector('#mensagem').value;
                     console.log(assunto, mensagem);
-                    window.location.href = 'mailto:gustavocarlos202@gmail.com?subject=' + assunto + '&body=' + mensagem;
+                    window.location.href = 'mailto:gustavocarlos206@gmail.com?subject=' + assunto + '&body=' + mensagem;
                 });
             });
         } else {
