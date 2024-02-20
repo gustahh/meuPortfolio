@@ -262,6 +262,8 @@ p {
 }
 
 .photo {
+  display: flex;
+  justify-content: center;
   position: relative;
   float: right;
   width: 300px;
