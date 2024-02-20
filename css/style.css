@@ -81,7 +81,15 @@ footer {
   font-size: 10px;
   cursor: default;
 }
-
+.rightsMobile {
+  display: none;
+  opacity: 50%;
+  font-size: 10px;
+  cursor: default;
+}
+.padding {
+  display: none;
+}
 .problemsIcons {
   width: 13px;
   height: 13px;
