@@ -306,7 +306,7 @@ $(document).ready(function () {
 
                 });
             } else {
-                $('.ulFavs').css('padding-bottom', '50px');
+                $('.ulFavs').css('padding-bottom', '0px');
             }
         });
         //para mudar svg
