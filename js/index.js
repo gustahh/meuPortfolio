@@ -307,7 +307,7 @@ $(document).ready(function () {
                 });
             } else {
                 if ($(window).width() <= 600) { 
-                    //faz nada
+                    //faz
                 } else {
                     $('.ulFavs').css('padding-bottom', '50px');
                 }
