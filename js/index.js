@@ -5,7 +5,7 @@ import { meusProjetos, meuFixado, meusFavs } from "./db.js";
 var projetos = meusProjetos();
 var fixado = meuFixado();
 var favs = meusFavs();
-console.log(favs);
+//console.log(favs);
 
 $(document).ready(function () {
     //funcoes
@@ -23,7 +23,7 @@ $(document).ready(function () {
     /* função para carregar página */
 
     function loadPag(pag, nomePag, elemento) {
-        console.log('Função carregada!');
+        //console.log('Função carregada!');
         $('.nomePag').html(pag);
         if (nomePag === 'bemvindo') {
             $(elemento).find('img').attr('src', 'icons/house-fill.svg');
@@ -61,7 +61,7 @@ $(document).ready(function () {
                     event.preventDefault();
                     var assunto = document.querySelector('#assunto').value;
                     var mensagem = document.querySelector('#mensagem').value;
-                    console.log(assunto, mensagem);
+                    //console.log(assunto, mensagem);
                     window.location.href = 'mailto:gustavocarlos206@gmail.com?subject=' + assunto + '&body=' + mensagem;
                 });
             });
@@ -190,14 +190,14 @@ $(document).ready(function () {
                 $('.mostrar').click(function () {
                     //verifica se a guia já existe, caso contrário a cria
                     if (PagProjetos > 0) {
-                        console.log('Guia existente');
+                        //console.log('Guia existente');
                         loadProjetos();
                         showClose('[tabindex="projetos"]');
                         removeId('projetos');
                     } else {
                         PagProjetos++;
                         guiasTotal++;
-                        console.log(PagProjetos);
+                        //console.log(PagProjetos);
                         loadProjetos();
                         var newTab = `
                             <div class="tab" tabindex="projetos" name="Projetos" id="ativa">
@@ -221,7 +221,7 @@ $(document).ready(function () {
                 var bisa = avo.parent();
                 const ulId = bisa.find('ul').attr('class');
                 const ul = document.querySelector('.' + ulId);
-                console.log(ul);
+                //console.log(ul);
                 ul.scrollBy({
                     left: 200,
                     behavior: 'smooth'
@@ -236,7 +236,7 @@ $(document).ready(function () {
                 var bisa = avo.parent();
                 const ulId = bisa.find('ul').attr('class');
                 const ul = document.querySelector('.' + ulId);
-                console.log(ul);
+                //console.log(ul);
                 ul.scrollBy({
                     left: -200,
                     behavior: 'smooth'
@@ -283,7 +283,7 @@ $(document).ready(function () {
                 $('#fav').click(function () {
                     //verifica se a guia já existe, caso contrário a cria
                     if (pagFavs > 0) {
-                        console.log('Guia existente');
+                        //console.log('Guia existente');
                         loadFavs();
                         showClose('[tabindex="favoritos"]');
                         removeId('projetos');
@@ -335,7 +335,7 @@ $(document).ready(function () {
         //remove id e adiciona a guia atual
         $('#ativa').removeAttr('id');
         $('[tabindex="' + tabindex + '"]').attr('id', 'ativa');
-        console.log(tabindex);
+        //console.log(tabindex);
     }
 
     //exibe o botão de fechar da guia
@@ -353,7 +353,7 @@ $(document).ready(function () {
     function navegacao() {
         $(document).on('click', '.liNavegar', function (event) {
             var index = $(this).attr('tabindex');
-            console.log(index);
+            //console.log(index);
             if (index === 'sobremim') {
                 //carrega função
                 if ($(window).width() <= 600) {
@@ -364,7 +364,7 @@ $(document).ready(function () {
 
                 //verifica se a guia já existe, caso contrário a cria
                 if (sobre > 0) {
-                    console.log('Guia existente');
+                    //console.log('Guia existente');
                     if ($(window).width() <= 600) {
                         loadPag('Sobre mim', 'sobremim', 'li#sobremim.liFooter');
                     } else {
@@ -376,7 +376,7 @@ $(document).ready(function () {
                 } else {
                     sobre++;
                     guiasTotal++;
-                    console.log(sobre);
+                    //console.log(sobre);
                     var newTab = `
                 <div class="tab" tabindex="sobremim" name="Sobre mim">
                     <img src="icons/msg-bubble-user-fill.svg" alt="" srcset="" class="iconsTab">
@@ -394,7 +394,7 @@ $(document).ready(function () {
 
                 //verifica se a guia já existe, caso contrário a cria
                 if (portfolio > 0) {
-                    console.log('Guia existente');
+                    //console.log('Guia existente');
                     loadPortfolio();
                     showClose('[tabindex="portfolio"]');
                     removeId('portfolio');
@@ -422,7 +422,7 @@ $(document).ready(function () {
 
                 //verifica se a guia já existe, caso contrário a cria
                 if (contato > 0) {
-                    console.log('Guia existente');
+                    //console.log('Guia existente');
                     if ($(window).width() <= 600) {
                         loadPag('Contato', 'contato', 'li#contato.liFooter');
                     } else {
@@ -459,7 +459,7 @@ $(document).ready(function () {
 
     $('li').click(function (event) {
         var id = $(this).attr('id');
-        console.log(id);
+        //console.log(id);
         if (id === 'bemvindo') {
             //carrega função
             loadPag('Bem vindo!', 'bemvindo', $(this)), function () {
@@ -468,14 +468,14 @@ $(document).ready(function () {
 
             //verifica se a guia já existe, caso contrário a cria
             if (bemvindo > 0) {
-                console.log('Guia existente');
+                //console.log('Guia existente');
                 loadPag('Bem vindo!', 'bemvindo', $(this));
                 showClose('[tabindex="bemvindo"]');
                 removeId('bemvindo');
             } else {
                 bemvindo++;
                 guiasTotal++;
-                console.log(bemvindo);
+                //console.log(bemvindo);
                 var newTab = `
                 <div class="tab" tabindex="bemvindo" name="Bem vindo!" id="ativa">
                     <img src="icons/house-fill.svg" alt="" srcset="" class="iconsTab">
@@ -493,14 +493,14 @@ $(document).ready(function () {
 
             //verifica se a guia já existe, caso contrário a cria
             if (sobre > 0) {
-                console.log('Guia existente');
+                //console.log('Guia existente');
                 loadPag('Sobre mim', 'sobremim', $(this));
                 showClose('[tabindex="sobremim"]');
                 removeId('sobremim');
             } else {
                 sobre++;
                 guiasTotal++;
-                console.log(sobre);
+                //console.log(sobre);
                 var newTab = `
                 <div class="tab" tabindex="sobremim" name="Sobre mim">
                     <img src="icons/msg-bubble-user-fill.svg" alt="" srcset="" class="iconsTab">
@@ -518,7 +518,7 @@ $(document).ready(function () {
 
             //verifica se a guia já existe, caso contrário a cria
             if (portfolio > 0) {
-                console.log('Guia existente');
+                //console.log('Guia existente');
                 loadPortfolio();
                 showClose('[tabindex="portfolio"]');
                 removeId('portfolio');
@@ -542,7 +542,7 @@ $(document).ready(function () {
 
             //verifica se a guia já existe, caso contrário a cria
             if (contato > 0) {
-                console.log('Guia existente');
+                //console.log('Guia existente');
                 loadPag('Contato', 'contato', $(this));
                 showClose('[tabindex="contato"]');
                 removeId('contato');
@@ -585,7 +585,7 @@ $(document).ready(function () {
     $(document).on('click', '.closeTab', function () {
         // Evita a propagação do evento para o elemento pai
         event.stopPropagation();
-        console.log('fechar!');
+        //console.log('fechar!');
         //seleciona a guia clicada
         var pai = $(this).parent();
         var index = pai.attr('tabindex');
@@ -612,11 +612,11 @@ $(document).ready(function () {
         /*carrega a guia a direita se existir, caso contrário carrega a 
        da esquerda */
         if (pai.next().length > 0) {
-            console.log('existe');
+            //console.log('existe');
             var nextIndex = pai.next().attr('tabindex');
-            console.log(nextIndex);
+            //console.log(nextIndex);
             var nextName = pai.next().attr('name');
-            console.log(nextName);
+            //console.log(nextName);
             if (nextIndex === 'portfolio') {
                 loadPortfolio();
                 removeId('portfolio');
@@ -632,11 +632,11 @@ $(document).ready(function () {
             }
             showClose(pai.next());
         } else {
-            console.log('não existe');
+            //console.log('não existe');
             var prevIndex = pai.prev().attr('tabindex');
-            console.log(prevIndex);
+            //console.log(prevIndex);
             var prevName = pai.prev().attr('name');
-            console.log(prevName);
+            //console.log(prevName);
             if (prevIndex === 'portfolio') {
                 loadPortfolio();
                 removeId('portfolio');
@@ -647,7 +647,7 @@ $(document).ready(function () {
                 loadFavs();
                 removeId('favoritos');
             } else {
-                console.log('else', prevName, prevIndex, $('#' + prevIndex));
+                //console.log('else', prevName, prevIndex, $('#' + prevIndex));
                 loadPag(prevName, prevIndex, $('#' + prevIndex));
                 removeId(prevIndex);
             }
@@ -656,7 +656,7 @@ $(document).ready(function () {
 
         //remove guia
         pai.remove();
-        console.log('O numero de guias é: ', guiasTotal);
+        //console.log('O numero de guias é: ', guiasTotal);
 
         //checa numeros de guias, se for 0 então não exibe nenhuma
         if (guiasTotal < 1) {
