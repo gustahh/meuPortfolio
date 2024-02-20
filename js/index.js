@@ -306,7 +306,12 @@ $(document).ready(function () {
 
                 });
             } else {
-                $('.ulFavs').css('padding-bottom', '0px');
+                if ($(window).width() <= 600) { 
+                    //faz nada
+                } else {
+                    $('.ulFavs').css('padding-bottom', '50px');
+                }
+                
             }
         });
         //para mudar svg
