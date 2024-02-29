@@ -22,7 +22,10 @@ var bodyMovin = new Projeto('Toggle',
 'BodyMovin, uma extensão do <br> After Effects que permite rodar <br> animações no HTML.', 
 'https://gustahh.github.io/toggle/', 20, 'Março', 2020, 'img/toggle.gif');
 
-var projetos = [parasito, chatphp, bodyMovin];
+var CRUD = new Projeto('CRUD React', 'CRUD com React, Tailwind e MySQL.', 
+'https://github.com/gustahh/CRUD', 29, 'Fevereiro', 2024, 'img/CRUD.jpeg')
+
+var projetos = [CRUD, parasito, chatphp, bodyMovin];
 
 export function meusProjetos() {
     return projetos;  
@@ -36,7 +39,7 @@ function Fixar(fixar, recado) {
 }
 
 //cria fixado
-var novoFixado = new Fixar(parasito, 'Meu projeto mais recente. ✌️');
+var novoFixado = new Fixar(CRUD, 'Estou aprendendo React. 💙⚛️');
 var fixado = [novoFixado];
 
 export function meuFixado() {
